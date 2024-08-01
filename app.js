@@ -1,18 +1,37 @@
 require("dotenv").config();
+
 const express = require("express");
 const app = express();
 const port = 7700;
 
-// dbConnection\
+// Database connection
 const dbConnection = require("./db/dbConfig");
-app.get("/", (req, res) => {
-	res.send("this is a test for evangadi forum");
-});
+// User routes middleware file
+const userRoutes = require("./routes/userRoute");
+// Question routes middleware file
+const questionRoutes = require("./routes/questionRoute");
+// Answer routes middleware file
+const answerRoutes = require("./routes/answerRoute");
+// Authentication middleware
+const authMiddleware = require("./middleware/authMiddleware");
 
-app.listen(port, (err) => {
-	if (err) {
-		console.log(err);
-	} else {
-		console.log(`listening on ${port}`);
-	}
-});
+// Routes with authentication middleware
+app.use("/api/questions", authMiddleware, questionRoutes);
+app.use("/api/users", authMiddleware, userRoutes);
+app.use("/api/answers", authMiddleware, answerRoutes);
+
+// Middleware to parse JSON bodies
+app.use(express.json());
+// Start server with database connection
+async function start() {
+  try {
+    await dbConnection.execute("SELECT 'test'");
+    app.listen(port, () => {
+      console.log("Database connection established");
+      console.log(`Listening on port ${port}`);
+    });
+  } catch (error) {
+    console.error("Failed to establish database connection:", error.message);
+  }
+}
+start();
