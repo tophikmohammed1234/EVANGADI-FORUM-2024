@@ -1,12 +1,16 @@
 
-const dbConection = require("../db/dbConfig");
+const dbConnection = require("../db/dbConfig");
 const { v4: uuidv4 } = require("uuid");
+const { StatusCodes } = require("http-status-codes");
 
-async function question(req, res) {
-  const { userid, title, description, tag } = req.body;
+    // const username = req.user.username;
+    
+    async function question(req, res) {
+     const { title, description, tag } = req.body;
+     const userid = req.user.userid;
 
   // Validate input
-  if (!userid || !title || !description) {
+  if ( !title || !description) {
     return res.status(400).json({
       msg: "Please provide all required fields",
     });
@@ -27,7 +31,7 @@ async function question(req, res) {
 
   // Check if user exists
   try {
-    const [user] = await dbConection.query(
+    const [user] = await dbConnection.query(
       "SELECT userid FROM userTable WHERE userid = ?",
       [userid]
     );
@@ -38,7 +42,7 @@ async function question(req, res) {
     const questionid = uuidv4(); // generate UUID
 
     // Insert question into database
-    await dbConection.query(
+    await dbConnection.query(
       "INSERT INTO questionTable (questionid, userid, title, description, tag) VALUES (?, ?, ?, ?, ?)",
       [questionid, userid, title, description, tag || null]
     );
@@ -47,14 +51,11 @@ async function question(req, res) {
       .status(201)
       .json({ msg: "Question created successfully", questionid });
   } catch (error) {
-    console.error(error.message);
     return res.status(500).json({ msg: "Something went wrong" });
   }
 }
 
-module.exports = {
-  question,
-};
+
 
 // Get single question
 async function singleQuestion(req, res) {
@@ -65,11 +66,9 @@ async function singleQuestion(req, res) {
       `SELECT * FROM questiontable  WHERE questionid=?`,
       [question_id]
     );
-    console.log(singlequestion);
     // if  no question was found in the database it returns The requested question could not be found
     if (singlequestion.length === 0) {
       return res.status(StatusCodes.NOT_FOUND).json({
-        error: "NOT FOUND",
         message: "The requested question could not be found.",
       });
     }
@@ -82,4 +81,4 @@ async function singleQuestion(req, res) {
     });
   }
 }
-module.exports = { singleQuestion };
+module.exports = { singleQuestion, question };

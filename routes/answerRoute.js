@@ -1,9 +1,10 @@
 const express = require("express");
 
+const { getAnswer, postAnswer } = require("../controller/answerController");
 // answer route
-router.post("/", answer);
 const router = express.Router();
-const { getAnswer,answer } = require("../controller/answerController");
+
+router.post("/", postAnswer);
 router.get("/:questionid", getAnswer);
 
 

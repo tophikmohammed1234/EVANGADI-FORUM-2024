@@ -13,9 +13,10 @@
     "cores": "^0.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
-    "uuid": "^10.0.0"
     "http-status-codes": "^2.3.0",
     "jsonwebtoken": "^9.0.2",
-    "mysql2": "^3.11.0"
+    "mysql2": "^3.11.0",
+    "negotiator": "^0.6.3",
+    "uuid": "^10.0.0"
   }
 }

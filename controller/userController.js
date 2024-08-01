@@ -1,6 +1,7 @@
 
-const dbConection = require("../db/dbConfig");
+const dbConnection = require("../db/dbConfig");
 const bcrypt = require("bcrypt");
+const { StatusCodes } = require("http-status-codes");
 
 // Library to create JSON web token
 const jwt = require("jsonwebtoken");
@@ -18,7 +19,7 @@ async function register(req, res) {
 
   // Check if user already exists
   try {
-    const [user] = await dbConection.query(
+    const [user] = await dbConnection.query(
       "SELECT username,userid FROM userTable WHERE username = ? or email = ?",
       [username, email]
     );
@@ -38,7 +39,7 @@ async function register(req, res) {
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    await dbConection.query(
+    await dbConnection.query(
       "INSERT INTO userTable (username,firstname,lastname,email,password) VALUES (?,?,?,?,?)",
       [username, firstname, lastname, email, hashedPassword]
     );
@@ -50,9 +51,7 @@ async function register(req, res) {
   }
 }
 
-module.exports = {
-  register,
-};
+
 
 // LOGIN
 async function login(req, res) {
@@ -106,5 +105,16 @@ async function login(req, res) {
   }
 }
 
-module.exports ={login}
+async function checkUser(req, res) {
+  const username = req.user.username;
+  const userid = req.user.userid;
+
+  res.status(StatusCodes.OK).json({ msg: "valid user", username, userid });
+}
+
+module.exports = {
+  register,
+  login,
+  checkUser
+};
 

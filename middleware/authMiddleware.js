@@ -7,10 +7,10 @@ async function authMiddleware(req, res, next) {
   if (!authHeader || !authHeader.startsWith("Bearer ")) {
     return res
       .status(StatusCodes.UNAUTHORIZED)
-      .json({ msg: "Authentication invalid" });
+      .json({ msg: "Authentication invalid++++" });
   }
   // Extract the token from the header
-  const token = authHeader.split("")[1];
+  const token = authHeader.split(" ")[1];
 
   try {
     // verify the token using the secret key
@@ -22,7 +22,7 @@ async function authMiddleware(req, res, next) {
   } catch (error) {
     return res
       .status(StatusCodes.UNAUTHORIZED)
-      .json({ msg: "Authentication invalid" });
+      .json({ msg: "Authentication invalid--" });
   }
 }
 

@@ -5,6 +5,9 @@ const express = require("express");
 const app = express();
 const port = 7700;
 
+// Middleware to parse JSON bodies
+app.use(express.json());
+
 // Database connection
 const dbConnection = require("./db/dbConfig");
 // User routes middleware file
@@ -18,11 +21,10 @@ const authMiddleware = require("./middleware/authMiddleware");
 
 // Routes with authentication middleware
 app.use("/api/questions", authMiddleware, questionRoutes);
-app.use("/api/users", authMiddleware, userRoutes);
+app.use("/api/users", userRoutes);
 app.use("/api/answers", authMiddleware, answerRoutes);
 
-// Middleware to parse JSON bodies
-app.use(express.json());
+
 // Start server with database connection
 async function start() {
   try {
