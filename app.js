@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 
 const express = require("express");
@@ -24,7 +23,6 @@ app.use("/api/questions", authMiddleware, questionRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/answers", authMiddleware, answerRoutes);
 
-
 // Start server with database connection
 async function start() {
   try {
@@ -38,5 +36,3 @@ async function start() {
   }
 }
 start();
-
-

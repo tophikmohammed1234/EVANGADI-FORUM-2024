@@ -4,7 +4,8 @@ const { StatusCodes } = require("http-status-codes");
 // Post answer for questions
 async function postAnswer(req, res) {
   const { questionid, answer } = req.body;
-const userid = req.user.userid
+  const userid = req.user.userid;
+
   // Validate request body
   if (!questionid || !answer) {
     return res.status(StatusCodes.BAD_REQUEST).json({
@@ -16,7 +17,7 @@ const userid = req.user.userid
     // Insert answer into database
     const [result] = await dbConnection.query(
       "INSERT INTO answerTable (userid, questionid, answer) VALUES (?,?, ?)",
-      [userid,questionid, answer]
+      [userid, questionid, answer]
     );
 
     // Check if insertion was successful
@@ -36,6 +37,8 @@ const userid = req.user.userid
     });
   }
 }
+
+// get answer for questions
 async function getAnswer(req, res) {
   const questionid = req.params.questionid;
   try {
@@ -43,7 +46,7 @@ async function getAnswer(req, res) {
       "SELECT * FROM answerTable WHERE questionid = ?",
       [questionid]
     );
-    return res.status(StatusCodes.OK).json({ answer });
+    return res.status(StatusCodes.OK).json({ message: answer });
   } catch (error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
       message: "An unexpected error occurred.",

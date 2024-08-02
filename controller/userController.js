@@ -1,4 +1,3 @@
-
 const dbConnection = require("../db/dbConfig");
 const bcrypt = require("bcrypt");
 const { StatusCodes } = require("http-status-codes");
@@ -6,7 +5,7 @@ const { StatusCodes } = require("http-status-codes");
 // Library to create JSON web token
 const jwt = require("jsonwebtoken");
 
-
+// Register
 async function register(req, res) {
   const { username, firstname, lastname, email, password } = req.body;
 
@@ -50,8 +49,6 @@ async function register(req, res) {
     return res.status(500).json({ msg: "something went wrong" });
   }
 }
-
-
 
 // LOGIN
 async function login(req, res) {
@@ -99,12 +96,12 @@ async function login(req, res) {
   } catch (error) {
     console.log(error.message);
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      error: "Internal Server Error",
       message: "An unexpected error occurred.",
     });
   }
 }
 
+// Check user
 async function checkUser(req, res) {
   const username = req.user.username;
   const userid = req.user.userid;
@@ -112,9 +109,4 @@ async function checkUser(req, res) {
   res.status(StatusCodes.OK).json({ msg: "valid user", username, userid });
 }
 
-module.exports = {
-  register,
-  login,
-  checkUser
-};
-
+module.exports = { register, login, checkUser };

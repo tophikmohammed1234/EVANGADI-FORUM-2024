@@ -1,16 +1,15 @@
-
 const dbConnection = require("../db/dbConfig");
 const { v4: uuidv4 } = require("uuid");
 const { StatusCodes } = require("http-status-codes");
 
-    // const username = req.user.username;
-    
-    async function question(req, res) {
-     const { title, description, tag } = req.body;
-     const userid = req.user.userid;
+// const username = req.user.username;
+
+async function question(req, res) {
+  const { title, description, tag } = req.body;
+  const userid = req.user.userid;
 
   // Validate input
-  if ( !title || !description) {
+  if (!title || !description) {
     return res.status(400).json({
       msg: "Please provide all required fields",
     });
@@ -39,7 +38,7 @@ const { StatusCodes } = require("http-status-codes");
       return res.status(404).json({ msg: "User not found" });
     }
     // generate questionid
-    const questionid = uuidv4(); // generate UUID
+    const questionid = uuidv4();
 
     // Insert question into database
     await dbConnection.query(
@@ -54,8 +53,6 @@ const { StatusCodes } = require("http-status-codes");
     return res.status(500).json({ msg: "Something went wrong" });
   }
 }
-
-
 
 // Get single question
 async function singleQuestion(req, res) {
@@ -76,7 +73,6 @@ async function singleQuestion(req, res) {
     return res.status(StatusCodes.OK).json({ question: singlequestion });
   } catch (error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-      error: "Internal Server Error",
       message: "An unexpected error occurred.",
     });
   }

@@ -7,5 +7,4 @@ const router = express.Router();
 router.post("/", postAnswer);
 router.get("/:questionid", getAnswer);
 
-
 module.exports = router;
