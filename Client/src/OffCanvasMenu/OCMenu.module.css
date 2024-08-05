@@ -1,0 +1,100 @@
+.offcanvasMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100%;
+  background: #fff;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.3);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvasMenu.active {
+  transform: translateX(0);
+}
+
+.offcanvasMenu .canvasClose {
+  display: flex;
+  justify-content: flex-end;
+  padding: 15px;
+}
+
+.offcanvasMenu .canvasClose button {
+  background-color: orange;
+  /* Default button color */
+  border: none;
+  /* Remove default border */
+  border-radius: 50%;
+  /* Make the button circular */
+  padding: 10px;
+  /* Adjust padding */
+  cursor: pointer;
+  /* Show pointer cursor on hover */
+  display: flex;
+  /* Center icon vertically and horizontally */
+  align-items: center;
+  justify-content: center;
+}
+
+.offcanvasMenu .canvasClose button:hover {
+  background-color: blue;
+  /* Button color on hover */
+  color: white;
+  /* Icon color on hover */
+}
+
+.offcanvasMenu .logo {
+  text-align: center;
+  padding: 20px;
+}
+
+.offcanvasMenu .logo img {
+  max-width: 100%;
+  height: auto;
+}
+
+.offcanvasMenu .textLeft {
+  flex: 1;
+}
+
+.offcanvasMenu .offcanvasMainMenu {
+  list-style: none;
+  align-items: center;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.offcanvasMenu .offcanvasMainMenu li {
+  padding: 15px 0;
+  width: 100%;
+  text-align: center;
+}
+
+.offcanvasMenu .offcanvasMainMenu li a {
+  text-decoration: none;
+  color: #8e8d8d;
+  font-size: 16px;
+  display: block;
+}
+
+.offcanvasMenu .offcanvasMainMenu li a:hover {
+  color: #000;
+  /* Text color on hover */
+}
+
+.offcanvasMenu .breakLine {
+  border-top: 1px solid #8e8d8d;
+  /* Line color */
+  margin: 10px 0;
+  /* Adjust margin for spacing */
+}
+
+.offcanvasMenu .selected a {
+  text-decoration: underline;
+  /* Underline for selected item */
+}

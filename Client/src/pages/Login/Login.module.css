@@ -1,0 +1,309 @@
+/* Define CSS variables */
+:root {
+    --primary-color: #ff8500;
+    --hover-color: #007bff;
+    --error-color: red;
+    --text-color: #343a40;
+    --background-color: #f8f9fa;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.allSection {
+    width: 100%;
+}
+
+.entirePageHolder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-image: url("../../assets/images/evanBg.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    margin-top: 45px;
+}
+
+.entirePagePad {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+}
+
+@media (min-width: 768px) {
+    .entirePagePad {
+        flex-direction: row;
+        padding: 20px;
+    }
+}
+
+.centered {
+    text-align: center;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .entirePagePad {
+        flex-direction: column;
+        padding: 8px;
+    }
+
+    .signinPageContainer,
+    .description {
+        width: 100%;
+        margin: 8px;
+        padding: 8px;
+    }
+
+    .description {
+        margin-top: 35px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}
+
+.signinPageContainer {
+    flex: 1;
+    padding: 80px;
+    background: var(--background-color);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    width: 50%;
+}
+
+.description {
+    width: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.signinHeading {
+    text-align: center;
+}
+
+.signinTitle {
+    font-size: 25px;
+    padding-bottom: 15px;
+}
+
+.textLinks {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.textLinks:hover {
+    color: var(--hover-color);
+}
+
+.signinBtn {
+    font-size: 14px;
+    margin-top: 15px;
+    padding: 8px 16px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 300px;
+}
+
+.signinBtn:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.linkssignin {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.linkssignin:hover {
+    color: var(--hover-color);
+}
+
+.Text {
+    text-align: center;
+    margin: 15px;
+}
+
+.About {
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.About:hover {
+    color: var(--hover-color);
+}
+
+.descriptionTitle h2 {
+    font-size: 45px;
+    color: transparent;
+    background-image: linear-gradient(310deg, #000000, #e33f00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 600;
+    line-height: 56px;
+    margin: 0;
+    text-align: left;
+}
+
+.descriptionText p {
+    font-family: sans-serif;
+    font-style: normal;
+    line-height: 1.5;
+    color: var(--text-color);
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+.signInButton {
+    font-size: 16px;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.signInButton:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.rowHeroPadd {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.signinForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.formInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.formInput:focus {
+    border: 2px solid var(--hover-color);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+.formInput.error {
+    border: 2px solid var(--error-color);
+    background-color: #ffe6e6;
+}
+
+.errorMessage {
+    color: var(--error-color);
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+.Name {
+    flex: 1;
+}
+
+.noPadding {
+    padding: 0;
+}
+
+.pwdMask {
+    position: relative;
+}
+
+.pwdMask .fa {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.disBtn,
+.lnkToggler {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+}
+
+.disBtn:hover,
+.lnkToggler:hover {
+    background-color: var(--hover-color);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.links {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links:hover {
+    color: var(--hover-color);
+}
+
+/* Styling for password field with icon */
+.pwdMask {
+    position: relative;
+}
+
+.pwdMask .fa {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.faEye::before {
+    content: "\f06e";
+    /* FontAwesome eye icon */
+    font-family: FontAwesome;
+}
+
+.faEyeSlash::before {
+    content: "\f070";
+    /* FontAwesome eye-slash icon */
+    font-family: FontAwesome;
+}
