@@ -1,0 +1,173 @@
+.footer {
+    background: #343a40;
+    color: #fff;
+    padding: 20px 0;
+    margin-bottom: 2px;
+    margin-top: 2px;
+}
+
+.footerWrapper {
+    width: 100%;
+}
+
+.footerTop {
+    background: #343a40;
+    padding: 20px 0;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+.footerBottomContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.col {
+    padding: 15px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footerBottomContent {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .col {
+        flex: 1;
+        max-width: 33.3333%;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .listmenu li {
+        list-style: none;
+    }
+
+    .logoFooter,
+    .listmenu,
+    .contactlist {
+        display: block;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .listmenu,
+    .contactlist {
+        display: none;
+    }
+}
+
+.logoFooter img {
+    max-width: 100%;
+    height: auto;
+}
+
+.footerSocialList {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    color: #fff;
+    font-size: 70px;
+    transition: color 0.3s ease-in-out;
+}
+
+.footerSocialList a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footerSocialList a:hover {
+    color: #dcdcdc;
+}
+
+/* .logoFooter {
+  margin-bottom: 20px;
+} */
+
+.listmenu,
+.contactlist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listmenu h5,
+.contactlist h5 {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    justify-content: center;
+}
+
+.listmenu a,
+.contactlist li {
+    color: #636b7c;
+    text-decoration: none;
+    font-size: 18px;
+    list-style: none;
+    text-align: center;
+}
+
+.listmenu a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.contactlist li {
+    transition: color 0.4s ease-in-out;
+    padding-right: 5px;
+}
+
+/* animation  */
+
+.logoBox {
+    display: inline-block;
+    padding: 10px;
+    border: 2px solid #ff8500;
+    border-radius: 8px;
+    animation: bounce 2s infinite;
+    margin-top: 40px;
+}
+
+.logo {
+    max-width: 150px;
+    animation: bounce 2s infinite;
+}
+
+.firingBox {
+    position: relative;
+    display: inline-block;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}

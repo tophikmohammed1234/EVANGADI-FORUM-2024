@@ -1,0 +1,361 @@
+/* General section styling */
+/* Container for page content */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+.allSection {
+    width: 100%;
+}
+
+.entirePageHolder {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* Padding around entire page content */
+.entirePagePad {
+    display: flex;
+    padding: 20px;
+
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+
+}
+
+/* Responsive styling for large screens */
+@media (min-width: 768px) {
+    .entirePagePad {
+        flex-direction: row;
+    }
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+    .entirePagePad {
+        flex-direction: column;
+        /* padding: 8px; */
+        display: flex;
+        /* padding: 20px; */
+
+        /* display: flex; */
+        justify-content: space-between;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+}
+
+.entirePageHolder {
+    background-image: url("../assets/img/10001.svg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100%;
+    margin-bottom: 0;
+    margin-top: 45px;
+}
+
+@media (max-width: 768px) {
+    .entirePageHolder {
+        margin-bottom: 600px;
+        margin-top: 50px;
+        padding: 8px;
+    }
+}
+
+@media (min-width: 768px) {
+    .description {
+        margin-bottom: 600;
+        margin-top: 0;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+    .description {
+        margin-bottom: 0;
+        margin-top: 35px;
+        width: 100%;
+    }
+}
+
+.signupHeading {
+    text-align: center;
+}
+
+.signupTitle {
+    font-size: 25px;
+    padding-bottom: 15px;
+}
+
+.textLinks {
+    color: #ff8500;
+    transition: color 0.3s ease;
+}
+
+.textLinks:hover {
+    color: #007bff;
+}
+
+.signupBtn {
+    font-size: 16px;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #ff8500;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.signupBtn:hover {
+    background-color: #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+/* ---Terms of Policy ---- */
+.linksSinup {
+    color: #ff8500;
+    transition: color 0.3s ease;
+}
+
+.linksSinup:hover {
+    color: #007bff;
+}
+
+.Text {
+    text-align: center;
+    margin: 15px;
+}
+
+.About {
+    color: #ff8500;
+    transition: color 0.3s ease;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.About:hover {
+    color: #007bff;
+}
+
+.descriptionTitle h2 {
+    font-size: 45px;
+    color: transparent;
+    background-image: linear-gradient(310deg, #000000, #e33f00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 600;
+    line-height: 56px;
+    margin-bottom: 0;
+    margin-top: 0;
+    text-align: left;
+    margin-left: 0;
+}
+
+.descriptionText p {
+    font-family: sans-serif;
+    font-style: normal;
+    line-height: 1.5;
+    color: #343a40;
+    font-size: 14px;
+    margin: 0;
+    padding: 10px;
+    text-align: left;
+    width: 100%;
+}
+
+/* Button styles */
+.signInButton {
+    font-size: 16px;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #ff8500;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.signInButton:hover {
+    background-color: #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+.signupPageContainer {
+    flex: 1;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    padding-top: 20px;
+    width: 50%;
+}
+
+@media (max-width: 768px) {
+    .signupPageContainer {
+        margin-left: 8px;
+        margin-right: 8px;
+        padding-left: 8px;
+        padding-right: 8px;
+    }
+}
+
+/* --------------------- */
+
+/* Description Container */
+.description {
+    width: 50%;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+/* Flex row setup for larger screens */
+.rowHeroPadd {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+/* Form container styling */
+.signupForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* General form input styling */
+.formInput {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.formInput:focus {
+    border: 2px solid #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Error styling for form inputs */
+.formInput.error {
+    border: 2px solid red;
+    background-color: #ffe6e6;
+}
+
+/* Error message styling */
+.errorMessage {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+}
+
+/* Input container for first and last name */
+.row {
+    display: flex;
+    gap: 15px;
+}
+
+/* Styling for individual input columns */
+.Name {
+    flex: 1;
+}
+
+/* Remove padding for specific columns */
+.noPadding {
+    padding: 0;
+}
+
+/* Styling for password field with icon */
+.pwdMask {
+    position: relative;
+}
+
+.pwdMask .fa {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+/* Style for the heading with gradient text */
+.disBtn,
+.lnkToggler {
+    font-size: 16px;
+    padding: 10px 20px;
+    width: auto;
+    height: auto;
+}
+
+.disBtn,
+.lnkToggler {
+    background-color: #ff8500;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    text-decoration: none;
+    margin-bottom: 40px;
+}
+
+.disBtn:hover,
+.lnkToggler:hover {
+    background-color: #007bff;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+}
+
+/* Logo Container */
+.links {
+    color: #ff8500;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.links:hover {
+    color: #007bff;
+}
+
+.pwdMask {
+    position: relative;
+}
+
+.pwdMask .fa {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.faEye::before {
+    content: "\f06e";
+    /* FontAwesome eye icon */
+    font-family: FontAwesome;
+}
+
+.faEyeSlash::before {
+    content: "\f070";
+    /* FontAwesome eye-slash icon */
+    font-family: FontAwesome;
+}

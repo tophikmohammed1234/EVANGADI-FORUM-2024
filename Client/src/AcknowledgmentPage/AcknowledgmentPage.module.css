@@ -1,0 +1,46 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+  background: #f9f9f9;
+}
+
+.medal {
+  font-size: 100px;
+  color: gold;
+  margin-bottom: 20px;
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.message {
+  max-width: 800px;
+  text-align: center;
+  font-size: 18px;
+  color: #343a40;
+  line-height: 1.6;
+  opacity: 0; /* Start hidden */
+  animation: fadeIn 2s forwards; /* Animation to fade in */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

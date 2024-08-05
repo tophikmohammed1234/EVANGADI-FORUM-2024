@@ -1,0 +1,541 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	overflow-x: hidden;
+	width: 100%;
+}
+
+.background {
+	background-image: url(../../assets/images/Landingpagepic.jpg);
+	background-size: cover;
+	background-position: center;
+	height: 100vh;
+	color: white;
+	display: flex;
+	flex-direction: column;
+	width: 100vw;
+	overflow: hidden;
+}
+
+.navList {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0 5vw;
+	box-sizing: border-box;
+	background: rgba(0, 0, 0, 0.5);
+	z-index: 1000;
+}
+
+.navList a {
+	text-align: center;
+	font-size: 16px;
+	margin: 0 1vw;
+	color: white;
+	text-decoration: none;
+	white-space: nowrap;
+	font-family: 'Poppins', sans-serif;
+}
+
+.navList a:hover {
+	color: #fe8303;
+}
+
+.logo {
+	margin-right: auto;
+}
+
+.logo img {
+	max-width: 100px;
+}
+
+.mybutton {
+	background-color: whitesmoke;
+	color: #000;
+	padding: 5px 10px;
+	border-radius: 25px;
+	font-size: large;
+	border: none;
+	cursor: pointer;
+	margin: 1vh 1vw;
+	white-space: nowrap;
+}
+
+.mybutton:hover {
+	background-color: #fe8303;
+}
+
+.animationContainer {
+	flex: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 20vh;
+}
+
+.imagesContainer {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	padding: 20px;
+	width: 85%;
+	margin: 0 auto;
+}
+
+.imageCard {
+	flex: 1;
+	margin: 15px;
+	background: rgba(255, 255, 255, 0.9);
+	color: black;
+	padding: 20px;
+	padding-bottom: 40px;
+	border-radius: 10px;
+	text-align: center;
+	max-width: 30%;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	position: relative;
+	transition: transform 350ms ease, background-color 350ms ease, color 350ms ease;
+}
+
+.imageCard:hover {
+	transform: scale(1.05);
+	background-color: #2D1D10;
+	color: white;
+	animation: imageCard 2s ease 0s 1 normal forwards;
+}
+
+@keyframes imageCard {
+	0% {
+		opacity: 0;
+		transform: translateY(-250px);
+	}
+
+	100% {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+.image {
+	width: 100%;
+	border-radius: 10px;
+	aspect-ratio: 1 / 1;
+	object-fit: cover;
+}
+
+.imageCard h4 {
+	font-size: 1.5em;
+	color: #fe8303;
+	margin: 20px 0 10px 0;
+}
+
+.imageCard p {
+	font-size: 1em;
+	color: #333;
+}
+
+.imageCard:hover p {
+	color: white;
+}
+
+.bottomCard {
+	display: flex;
+
+}
+
+.bottomCard :hover {
+	transform: scale(1.05);
+	background-color: #2D1D10;
+	color: white;
+	animation: bottomCard 2s ease 0s 1 normal forwards;
+}
+
+@keyframes bottomCard {
+
+	0%,
+	100% {
+		transform: rotate(0deg);
+		transform-origin: 50% 0;
+	}
+
+	10% {
+		transform: rotate(2deg);
+	}
+
+	20%,
+	40%,
+	60% {
+		transform: rotate(-4deg);
+	}
+
+	30%,
+	50%,
+	70% {
+		transform: rotate(4deg);
+	}
+
+	80% {
+		transform: rotate(-2deg);
+	}
+
+	90% {
+		transform: rotate(2deg);
+	}
+}
+
+.middle_text {
+	background-color: #344767;
+	height: 50vh;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	padding: 20px;
+}
+
+.middle_text h3 {
+	color: #FE8303;
+	font-size: 1.5em;
+	width: 50%;
+}
+
+@media (max-width: 960px) {
+	.navList {
+		padding: 0 5vw;
+	}
+
+	.imageCard {
+		max-width: 45%;
+	}
+}
+
+@media (max-width: 768px) {
+	.navList {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0 5vw;
+	}
+
+	.navList a {
+		margin: 10px 0;
+		font-size: 18px;
+	}
+
+	.mybutton {
+		margin-left: 0;
+		margin-top: 10px;
+		width: 100%;
+	}
+
+	.imageCard {
+		max-width: 100%;
+		margin: 10px 0;
+	}
+
+	.imageCard:hover {
+		transform: scale(1.05);
+		background-color: #2D1D10;
+		color: white;
+		animation: imageCard 2s ease 0s 1 normal forwards;
+	}
+
+	@keyframes imageCard {
+		0% {
+			opacity: 0;
+			transform: translateY(-250px);
+		}
+
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	bottomCard :hover {
+		transform: scale(1.05);
+		background-color: #2D1D10;
+		color: white;
+		animation: bottomCard 2s ease 0s 1 normal forwards;
+	}
+
+	@keyframes bottomCard {
+
+		0%,
+		100% {
+			transform: rotate(0deg);
+			transform-origin: 50% 0;
+		}
+
+		10% {
+			transform: rotate(2deg);
+		}
+
+		20%,
+		40%,
+		60% {
+			transform: rotate(-4deg);
+		}
+
+		30%,
+		50%,
+		70% {
+			transform: rotate(4deg);
+		}
+
+		80% {
+			transform: rotate(-2deg);
+		}
+
+		90% {
+			transform: rotate(2deg);
+		}
+	}
+
+	.middle_text {
+		background-color: #344767;
+		width: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		padding: 10px;
+	}
+
+	.middle_text h3 {
+		color: #FE8303;
+		font-size: 0.65em;
+		width: 50%;
+	}
+}
+
+@media (max-width: 480px) {
+	.navList a {
+		font-size: 16px;
+		margin: 5px 0;
+	}
+
+	.mybutton {
+		padding: 10px;
+		font-size: medium;
+	}
+
+	.animationContainer {
+		margin-top: 10vh;
+	}
+
+	.imageCard {
+		max-width: 100%;
+		margin: 10px 0;
+	}
+
+	.bottomCard {
+		flex-direction: column;
+	}
+
+	.imageCard:hover {
+		transform: scale(1.05);
+		background-color: #2D1D10;
+		color: white;
+	}
+
+	bottomCard :hover {
+		transform: scale(1.05);
+		background-color: #2D1D10;
+		color: white;
+		animation: bottomCard 2s ease 0s 1 normal forwards;
+	}
+
+	@keyframes bottomCard {
+
+		0%,
+		100% {
+			transform: rotate(0deg);
+			transform-origin: 50% 0;
+		}
+
+		10% {
+			transform: rotate(2deg);
+		}
+
+		20%,
+		40%,
+		60% {
+			transform: rotate(-4deg);
+		}
+
+		30%,
+		50%,
+		70% {
+			transform: rotate(4deg);
+		}
+
+		80% {
+			transform: rotate(-2deg);
+		}
+
+		90% {
+			transform: rotate(2deg);
+		}
+	}
+}
+
+/* Dropdown Menu for max-width 440px */
+@media (max-width: 768px) {
+	.navList {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0 5vw;
+	}
+
+	.navToggle {
+		display: block;
+		cursor: pointer;
+		margin: 10px 0;
+	}
+
+	.navList a {
+		display: none;
+		width: 100%;
+		padding: 10px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.navList.show a {
+		display: block;
+	}
+
+	.mybutton {
+		display: none;
+	}
+
+	.navList.show .mybutton {
+		display: block;
+		width: 100%;
+	}
+
+	bottomCard :hover {
+		transform: scale(1.05);
+		background-color: #2D1D10;
+		color: white;
+		animation: bottomCard 2s ease 0s 1 normal forwards;
+	}
+
+	@keyframes bottomCard {
+
+		0%,
+		100% {
+			transform: rotate(0deg);
+			transform-origin: 50% 0;
+		}
+
+		10% {
+			transform: rotate(2deg);
+		}
+
+		20%,
+		40%,
+		60% {
+			transform: rotate(-4deg);
+		}
+
+		30%,
+		50%,
+		70% {
+			transform: rotate(4deg);
+		}
+
+		80% {
+			transform: rotate(-2deg);
+		}
+
+		90% {
+			transform: rotate(2deg);
+		}
+	}
+}
+
+@media (max-width: 480px) {
+	.navList {
+		flex-direction: column;
+		align-items: flex-start;
+		padding: 0 5vw;
+	}
+
+	.navToggle {
+		display: block;
+		cursor: pointer;
+		margin: 10px 0;
+	}
+
+	.navList a {
+		display: none;
+		width: 100%;
+		padding: 10px 0;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+	}
+
+	.navList.show a {
+		display: block;
+	}
+
+	.mybutton {
+		display: none;
+	}
+
+	.navList.show .mybutton {
+		display: block;
+		width: 100%;
+	}
+
+	bottomCard :hover {
+		transform: scale(1.05);
+		background-color: #2D1D10;
+		color: white;
+		animation: bottomCard 2s ease 0s 1 normal forwards;
+	}
+
+	@keyframes bottomCard {
+
+		0%,
+		100% {
+			transform: rotate(0deg);
+			transform-origin: 50% 0;
+		}
+
+		10% {
+			transform: rotate(2deg);
+		}
+
+		20%,
+		40%,
+		60% {
+			transform: rotate(-4deg);
+		}
+
+		30%,
+		50%,
+		70% {
+			transform: rotate(4deg);
+		}
+
+		80% {
+			transform: rotate(-2deg);
+		}
+
+		90% {
+			transform: rotate(2deg);
+		}
+	}
+}
