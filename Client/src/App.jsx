@@ -71,18 +71,10 @@ function App() {
 					}
 				/>
 				<Route
-					path="/answers"
+					path="/questions/:question_id"
 					element={
 						<ProtectedRoute>
 							<Answer />
-						</ProtectedRoute>
-					}
-				/>
-				<Route
-					path="/questions"
-					element={
-						<ProtectedRoute>
-							<Question />
 						</ProtectedRoute>
 					}
 				/>
