@@ -4,11 +4,13 @@ import Login from "./pages/Login/Login";
 import Landing from "./pages/Landing/Landing";
 import Signup from "./pages/Signup/Signup";
 import Answer from "./pages/Answer/Answer";
-import Question from "./pages/Question/Question";
 import { useEffect, useState, createContext } from "react";
 import axios from "./Axios/axiosConfig";
 import ProtectedRoute from "./ProtectedRoute/ProtectedRoute";
 import Spinner from "react-bootstrap/Spinner";
+import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
+import AcknowledgmentPage from "./AcknowledgmentPage/AcknowledgmentPage";
+import Question from "./pages/Question/Question";
 
 export const AppState = createContext();
 
@@ -62,6 +64,8 @@ function App() {
 				<Route path="/" element={<Landing />} />
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
+				<Route path="/forgot-password" element={<ForgotPassword />} />
+				<Route path="/acknowledgment" element={<AcknowledgmentPage />} />
 				<Route
 					path="/home"
 					element={
@@ -75,6 +79,14 @@ function App() {
 					element={
 						<ProtectedRoute>
 							<Answer />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/questions"
+					element={
+						<ProtectedRoute>
+							<Question />
 						</ProtectedRoute>
 					}
 				/>

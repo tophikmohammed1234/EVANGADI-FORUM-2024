@@ -1,4 +1,3 @@
-
 require("dotenv").config();
 const cors = require("cors");
 const express = require("express");
@@ -24,19 +23,16 @@ app.use("/api/questions", authMiddleware, questionRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/answers", authMiddleware, answerRoutes);
 
-
 // Start server with database connection
 async function start() {
-  try {
-    await dbConnection.execute("SELECT 'test'");
-    app.listen(port, () => {
-      console.log("Database connection established");
-      console.log(`Listening on port ${port}`);
-    });
-  } catch (error) {
-    console.error("Failed to establish database connection:", error.message);
-  }
+	try {
+		await dbConnection.execute("SELECT 'test'");
+		app.listen(port, () => {
+			console.log("Database connection established");
+			console.log(`Listening on port ${port}`);
+		});
+	} catch (error) {
+		console.error("Failed to establish database connection:", error.message);
+	}
 }
 start();
-
-

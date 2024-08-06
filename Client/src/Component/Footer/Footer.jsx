@@ -52,6 +52,9 @@ const Footer = () => {
 							<li>
 								<Link to="/legal/privacy/">Privacy Policy</Link>
 							</li>
+							<li>
+								<Link to="/acknowledgment">Acknowledgment</Link>
+							</li>
 						</ul>
 					</div>
 					<div className={`${styles.col} ${styles.contactlist}`}>

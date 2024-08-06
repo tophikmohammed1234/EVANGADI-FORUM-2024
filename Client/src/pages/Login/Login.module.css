@@ -1,4 +1,3 @@
-/* Define CSS variables */
 :root {
     --primary-color: #ff8500;
     --hover-color: #007bff;
@@ -24,23 +23,19 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
+    min-height: 100vh;
     margin-top: 45px;
+    padding-bottom: 80px;
+    box-sizing: border-box;
 }
 
 .entirePagePad {
     display: flex;
-    padding: 20px;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    height: 100vh;
-}
-
-@media (min-width: 768px) {
-    .entirePagePad {
-        flex-direction: row;
-        padding: 20px;
-    }
+    padding: 20px;
+    flex: 1;
 }
 
 .centered {
@@ -48,42 +43,20 @@
     margin-top: 15px;
 }
 
-@media (max-width: 768px) {
-    .entirePagePad {
-        flex-direction: column;
-        padding: 8px;
-    }
-
-    .signinPageContainer,
-    .description {
-        width: 100%;
-        margin: 8px;
-        padding: 8px;
-    }
-
-    .description {
-        margin-top: 35px;
-    }
-
-    .row {
-        flex-direction: column;
-    }
-}
-
 .signinPageContainer {
-    flex: 1;
-    padding: 80px;
+    padding: 20px;
     background: var(--background-color);
     border-radius: 8px;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-    width: 50%;
+    width: 90%;
+    max-width: 500px;
+    margin: 100px 50px 50px 100px;
 }
 
 .description {
     width: 50%;
-    margin-left: 15px;
-    margin-right: 15px;
+    margin-left: 0;
+    margin-right: 10vw;
 }
 
 .signinHeading {
@@ -91,7 +64,7 @@
 }
 
 .signinTitle {
-    font-size: 25px;
+    font-size: 24px;
     padding-bottom: 15px;
 }
 
@@ -105,9 +78,8 @@
 }
 
 .signinBtn {
-    font-size: 14px;
-    margin-top: 15px;
-    padding: 8px 16px;
+    font-size: 16px;
+    padding: 10px 20px;
     background-color: var(--primary-color);
     color: #fff;
     border: none;
@@ -116,6 +88,8 @@
     transition: background-color 0.3s, box-shadow 0.3s;
     width: 100%;
     max-width: 300px;
+    margin-bottom: 20px;
+    
 }
 
 .signinBtn:hover {
@@ -149,15 +123,16 @@
 }
 
 .descriptionTitle h2 {
-    font-size: 45px;
+    font-size: 32px;
     color: transparent;
     background-image: linear-gradient(310deg, #000000, #e33f00);
     -webkit-background-clip: text;
     background-clip: text;
     font-weight: 600;
-    line-height: 56px;
+    line-height: 1.2;
     margin: 0;
-    text-align: left;
+    text-align: start;
+
 }
 
 .descriptionText p {
@@ -169,7 +144,17 @@
     margin: 0;
     padding: 10px;
     text-align: left;
-    width: 100%;
+}
+
+.descriptionTitle h2 {
+    font-size: 45px;
+    color: transparent;
+    background-image: linear-gradient(310deg, #000000, #e33f00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-weight: 600;
+    line-height: 56px;
+    margin: 0;
 }
 
 .signInButton {
@@ -181,7 +166,7 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    width: 100px;
+    width: 150px;
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
@@ -254,56 +239,44 @@
     cursor: pointer;
 }
 
-.disBtn,
-.lnkToggler {
-    background-color: var(--primary-color);
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    text-decoration: none;
+.col {
+    display: flex;
+    flex-direction: column;
 }
 
-.disBtn:hover,
-.lnkToggler:hover {
-    background-color: var(--hover-color);
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
+@media (min-width: 768px) {
+    .entirePagePad {
+        flex-direction: row;
+        padding: 20px;
+    }
 }
 
-.links {
-    color: var(--primary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+@media (max-width: 768px) {
+    .entirePagePad {
+        padding: 8px;
+    }
 
-.links:hover {
-    color: var(--hover-color);
-}
 
-/* Styling for password field with icon */
-.pwdMask {
-    position: relative;
-}
+    .description {
+        width: 100%;
+        margin: 8px;
+        padding: 8px;
+    }
 
-.pwdMask .fa {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
+    .signinPageContainer {
+        width: 100%;
+        margin: 8px 0;
+    }
 
-.faEye::before {
-    content: "\f06e";
-    /* FontAwesome eye icon */
-    font-family: FontAwesome;
-}
+    .description {
+        margin-top: 35px;
+    }
 
-.faEyeSlash::before {
-    content: "\f070";
-    /* FontAwesome eye-slash icon */
-    font-family: FontAwesome;
+    .row {
+        flex-direction: column;
+    }
+
+    .signinBtn {
+        width: 100%;
+    }
 }
