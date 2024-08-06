@@ -3,6 +3,7 @@ import styles from "./Signup.module.css";
 import axios from "../../Axios/axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import LayOut from "../../Component/LayOut/LayOut";
 
 function Signup() {
 	const navigate = useNavigate();
@@ -53,7 +54,7 @@ function Signup() {
 	}
 
 	return (
-		<>
+		<LayOut>
 			<section className={styles.allSection}>
 				<div className={styles.entirePageHolder}>
 					<div className={styles.entirePagePad}>
@@ -212,7 +213,7 @@ function Signup() {
 					</div>
 				</div>
 			</section>
-		</>
+		</LayOut>
 	);
 }
 
