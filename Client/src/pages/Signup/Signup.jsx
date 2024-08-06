@@ -2,8 +2,6 @@ import { useRef, useState } from "react";
 import styles from "./Signup.module.css";
 import axios from "../../Axios/axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
-import Header from "../../Component/Header/Header";
-import Footer from "../../Component/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function Signup() {
@@ -56,7 +54,6 @@ function Signup() {
 
 	return (
 		<>
-			<Header />
 			<section className={styles.allSection}>
 				<div className={styles.entirePageHolder}>
 					<div className={styles.entirePagePad}>
@@ -64,7 +61,7 @@ function Signup() {
 							<div className={styles.signupHeading}>
 								<h3 className={styles.signupTitle}>Join the network</h3>
 								<p>
-									Already have an account?
+									Already have an account?{" "}
 									<Link className={styles.textLinks} to="/login">
 										Sign in
 									</Link>
@@ -91,6 +88,36 @@ function Signup() {
 									</span>
 								)}
 
+								<div className={styles.Name}>
+									<input
+										ref={firstNameDom}
+										type="text"
+										className={`${styles.formInput} ${
+											formErrors.firstName ? styles.error : ""
+										}`}
+										name="firstName"
+										placeholder="First Name"
+									/>
+									{formErrors.firstName && (
+										<span className={styles.errorMessage}>
+											{formErrors.firstName}
+										</span>
+									)}
+									<input
+										ref={lastNameDom}
+										type="text"
+										className={`${styles.formInput} ${
+											formErrors.lastName ? styles.error : ""
+										}`}
+										name="lastName"
+										placeholder="Last Name"
+									/>
+									{formErrors.lastName && (
+										<span className={styles.errorMessage}>
+											{formErrors.lastName}
+										</span>
+									)}
+								</div>
 								<input
 									ref={emailDom}
 									type="email"
@@ -98,48 +125,13 @@ function Signup() {
 										formErrors.email ? styles.error : ""
 									}`}
 									name="email"
-									placeholder="Email"
+									placeholder="Email Address"
 								/>
 								{formErrors.email && (
 									<span className={styles.errorMessage}>
 										{formErrors.email}
 									</span>
 								)}
-
-								<div className={styles.row}>
-									<div className={styles.Name}>
-										<input
-											ref={firstNameDom}
-											type="text"
-											className={`${styles.formInput} ${
-												formErrors.firstName ? styles.error : ""
-											}`}
-											name="firstName"
-											placeholder="First Name"
-										/>
-										{formErrors.firstName && (
-											<span className={styles.errorMessage}>
-												{formErrors.firstName}
-											</span>
-										)}
-									</div>
-									<div className={styles.Name}>
-										<input
-											ref={lastNameDom}
-											type="text"
-											className={`${styles.formInput} ${
-												formErrors.lastName ? styles.error : ""
-											}`}
-											name="lastName"
-											placeholder="Last Name"
-										/>
-										{formErrors.lastName && (
-											<span className={styles.errorMessage}>
-												{formErrors.lastName}
-											</span>
-										)}
-									</div>
-								</div>
 
 								<div className={styles.pwdMask}>
 									<input
@@ -153,7 +145,7 @@ function Signup() {
 									/>
 									<span
 										className={`${styles.fa} ${
-											showPassword ? styles.faEye : styles.faEyeSlash
+											showPassword ? "fas fa-eye" : "fas fa-eye-slash"
 										}`}
 										onClick={togglePasswordVisibility}
 									></span>
@@ -163,22 +155,22 @@ function Signup() {
 										</span>
 									)}
 								</div>
-
+								<div className={styles.Text}>
+									I agree to the{" "}
+									<Link className={styles.linksSinup} to="/terms">
+										Terms of Service
+									</Link>{" "}
+									and{" "}
+									<Link className={styles.linksSinup} to="/privacy-policy">
+										Privacy Policy
+									</Link>
+									.
+								</div>
 								<button className={styles.signupBtn} type="submit">
 									Agree & Join
 								</button>
 							</form>
-
 							<div className={styles.Text}>
-								By joining, you agree to the
-								<Link className={styles.linksSinup} to="/terms">
-									Terms of Service
-								</Link>
-								and
-								<Link className={styles.linksSinup} to="/privacy-policy">
-									Privacy Policy
-								</Link>
-								.
 								<br />
 								<Link className={styles.linksSinup} to="/login">
 									Already have an account?
@@ -191,25 +183,20 @@ function Signup() {
 								<Link className={styles.About} to="/About">
 									About
 								</Link>
-								<h2>Evangadi Networks!</h2>
+								<h2>Evangadi Networks</h2>
 							</div>
 
 							<div className={styles.descriptionText}>
 								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit.
-									Voluptates culpa, reiciendis autem earum eum corrupti deleniti
-									iusto fugiat corporis qui dolorum, reprehenderit suscipit
-									molestiae quidem. Facere neque deleniti doloremque ipsum.
+									No matter what stage of life you are in, whether you’re just
+									starting elementary school or being promoted to CEO of a
+									Fortune 500 company, you have much to offer to those who are
+									trying to follow in your footsteps.
 								</p>
 								<p>
-									Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-									Provident, minus corporis aut tempora laudantium natus modi id
-									quisquam ab ullam deserunt hic porro saepe error soluta
-									molestias quaerat dolorem illo.
-								</p>
-								<p>
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-									architecto aperiam animi iste quidem quam provident, a unde.
+									Whether you are willing to share your knowledge or you are
+									just looking to meet mentors of your own, please start by
+									joining the network here.
 								</p>
 								<Link to="/login">
 									<button
@@ -217,7 +204,7 @@ function Signup() {
 										className={styles.signInButton}
 										data-panel=".panel-signin"
 									>
-										Sign In
+										How IT Works
 									</button>
 								</Link>
 							</div>
@@ -225,7 +212,6 @@ function Signup() {
 					</div>
 				</div>
 			</section>
-			<Footer />
 		</>
 	);
 }

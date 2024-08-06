@@ -24,7 +24,7 @@ function LandingPage() {
 		if (user) {
 			localStorage.removeItem("token");
 			setUser(null);
-			navigate("/"); // Navigate to the homepage or another page after logout
+			navigate("/");
 		} else {
 			navigate("/login");
 		}
@@ -47,7 +47,7 @@ function LandingPage() {
 					>
 						☰
 					</div>
-					<Link to="/">Home</Link>
+					<Link to="/home">Home</Link>
 					<Link to="#">Academy</Link>
 					<Link to="#">Scholarship</Link>
 					<Link to="#">Immersive</Link>
@@ -60,17 +60,19 @@ function LandingPage() {
 				<div className={classes.animationContainer}>
 					<TypeAnimation
 						sequence={[
-							"what is Building seamless full stack solutions?",
+							"Here you can Ask questions about fullstack development.",
 							1000,
-							"how can I center a div?",
+							"Share your expertise with fellow developers.",
 							1000,
-							"Transforming ideas into full stack web applications",
+							"Get answers from experienced fullstack developers",
 							1000,
-							"how can I connect front-end and back-end?",
+							"Explore the latest trends in web development",
 							1000,
-							"Where front-end meets back-end in web development",
+							"Find solutions to your coding challenges.",
 							1000,
-							"where can I get material?",
+							"Build your network with other developers",
+							1000,
+							"Ask, answer, and connect with fullstack enthusiasts",
 							1000,
 						]}
 						wrapper="span"
@@ -159,7 +161,7 @@ function LandingPage() {
 							<Card.Title>{item.title}</Card.Title>
 							<Card.Text>{item.text}</Card.Text>
 							<Button onClick={handleAuthAction} variant="outline-primary">
-								{user ? "Logout" : "Post Here"}
+								{user ? "home" : "login"}
 							</Button>
 						</Card.Body>
 					</Card>

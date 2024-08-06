@@ -3,13 +3,12 @@ import axios from "../../Axios/axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
 import { AppState } from "../../App";
 import styles from "./Login.module.css";
-import Header from "../../Component/Header/Header";
-import Footer from "../../Component/Footer/Footer";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function Login() {
 	const [formErrors, setFormErrors] = useState({});
-	const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+	const [showPassword, setShowPassword] = useState(false);
+	const [rememberMe, setRememberMe] = useState(false);
 	const navigate = useNavigate();
 	const { setUser } = useContext(AppState);
 	const emailDom = useRef();
@@ -43,25 +42,32 @@ function Login() {
 					email: emailValue,
 					password: passwordValue,
 				});
-				localStorage.setItem("token", data.token);
+				if (rememberMe) {
+					localStorage.setItem("token", data.token);
+				} else {
+					sessionStorage.setItem("token", data.token);
+				}
 				setUser({ username: data.username, userid: data.userid });
 				navigate("/home");
 			} catch (error) {
 				alert(error?.response?.data?.msg || "Login failed");
 			}
 		},
-		[navigate, setUser]
+		[navigate, setUser, rememberMe]
 	);
 
 	const togglePasswordVisibility = () => {
 		setShowPassword((prev) => !prev);
 	};
 
+	const handleRememberMeChange = (e) => {
+		setRememberMe(e.target.checked);
+	};
+
 	return (
 		<section className={styles.allSection}>
 			<div className={styles.entirePageHolder}>
 				<div className={styles.entirePagePad}>
-					<Header />
 					<div className={styles.signinPageContainer}>
 						<div className={styles.signinHeading}>
 							<h3 className={styles.signinTitle}>Login to your account</h3>
@@ -101,29 +107,38 @@ function Login() {
 									placeholder="Your Password"
 									aria-invalid={formErrors.password ? "true" : "false"}
 								/>
+								<span
+									className={`fa ${showPassword ? "fa-eye" : "fa-eye-slash"} ${
+										styles.fa
+									}`}
+									onClick={togglePasswordVisibility}
+								></span>
 								{formErrors.password && (
 									<span className={styles.errorMessage}>
 										{formErrors.password}
 									</span>
 								)}
-								<span
-									className={`${styles.fa} ${
-										showPassword ? styles.faEye : styles.faEyeSlash
-									}`}
-									onClick={togglePasswordVisibility}
-								></span>
+							</div>
+							<div className={styles.rememberMeContainer}>
+								<input
+									type="checkbox"
+									id="rememberMe"
+									checked={rememberMe}
+									onChange={handleRememberMeChange}
+								/>
+								<label htmlFor="rememberMe">Remember Me</label>
 							</div>
 							<div className={styles.centered}>
 								<button className={styles.signinBtn} type="submit">
-									Submit
+									Sign In
 								</button>
 							</div>
+							<div className={styles.forgotPassword}>
+								<Link className={styles.textLinks} to="/forgot-password">
+									Forgot your password?
+								</Link>
+							</div>
 						</form>
-						<div className={styles.centered}>
-							<Link className={styles.linkssignin} to="/signup">
-								Create an account?
-							</Link>
-						</div>
 					</div>
 					<div className={styles.description}>
 						<div className={styles.descriptionTitle}>
@@ -134,20 +149,15 @@ function Login() {
 						</div>
 						<div className={styles.descriptionText}>
 							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit.
-								Voluptates culpa, reiciendis autem earum eum corrupti deleniti
-								iusto fugiat corporis qui dolorum, reprehenderit suscipit
-								molestiae quidem. Facere neque deleniti doloremque ipsum.
+								No matter what stage of life you are in, whether you’re just
+								starting elementary school or being promoted to CEO of a Fortune
+								500 company, you have much to offer to those who are trying to
+								follow in your footsteps.
 							</p>
 							<p>
-								Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-								Provident, minus corporis aut tempora laudantium natus modi id
-								quisquam ab ullam deserunt hic porro saepe error soluta
-								molestias quaerat dolorem illo.
-							</p>
-							<p>
-								Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor
-								architecto aperiam animi iste quidem quam provident, a unde.
+								Whether you are willing to share your knowledge or you are just
+								looking to meet mentors of your own, please start by joining the
+								network here.
 							</p>
 							<button
 								type="submit"
@@ -155,13 +165,12 @@ function Login() {
 								data-panel=".panel-signin"
 								onClick={handleSubmit}
 							>
-								Sign In
+								How IT Works
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
-			<Footer />
 		</section>
 	);
 }

@@ -1,5 +1,4 @@
 /* General section styling */
-/* Container for page content */
 * {
     padding: 0;
     margin: 0;
@@ -13,83 +12,44 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-}
-
-/* Padding around entire page content */
-.entirePagePad {
-    display: flex;
-    padding: 20px;
-
-    /* display: flex; */
-    justify-content: space-between;
-    align-items: center;
-    height: 100vh;
-
-}
-
-/* Responsive styling for large screens */
-@media (min-width: 768px) {
-    .entirePagePad {
-        flex-direction: row;
-    }
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-    .entirePagePad {
-        flex-direction: column;
-        /* padding: 8px; */
-        display: flex;
-        /* padding: 20px; */
-
-        /* display: flex; */
-        justify-content: space-between;
-        align-items: center;
-        height: 100vh;
-    }
-
-    .row {
-        flex-direction: column;
-    }
-}
-
-.entirePageHolder {
-    background-image: url("../assets/img/10001.svg");
+    background-image: url("../../assets/images/evanBg.svg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 100vh;
-    width: 100%;
-    margin-bottom: 0;
+    min-height: 100vh;
     margin-top: 45px;
 }
 
-@media (max-width: 768px) {
-    .entirePageHolder {
-        margin-bottom: 600px;
-        margin-top: 50px;
-        padding: 8px;
-    }
+.entirePagePad {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
 }
 
-@media (min-width: 768px) {
-    .description {
-        margin-bottom: 600;
-        margin-top: 0;
-        padding: 30px;
-    }
+/* Container for Signup */
+.signupPageContainer {
+    flex: 1;
+    padding: 30px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 768px) {
-    .description {
-        margin-bottom: 0;
-        margin-top: 35px;
-        width: 100%;
-    }
+/* Container for description */
+.description {
+    flex: 1;
+    padding: 30px 0;
+    border-radius: 8px;
+    text-align: left;
 }
 
+/* Container for Name Box */
 .signupHeading {
     text-align: center;
+    margin-bottom: 8px;
 }
 
 .signupTitle {
@@ -97,15 +57,22 @@
     padding-bottom: 15px;
 }
 
-.textLinks {
+/* Container for links */
+.textLinks,
+.linksSinup,
+.About {
     color: #ff8500;
     transition: color 0.3s ease;
 }
 
-.textLinks:hover {
+.textLinks:hover,
+.linksSinup:hover,
+.About:hover {
     color: #007bff;
 }
 
+/* Container for button */
+.signInButton,
 .signupBtn {
     font-size: 16px;
     margin-top: 15px;
@@ -118,35 +85,26 @@
     transition: background-color 0.3s, box-shadow 0.3s;
 }
 
+.signupBtn {
+    width: 100%;
+}
+
+.agreeandjoin {
+    display: grid;
+    place-items: center;
+    margin-top: 20px;
+}
+
+.signInButton:hover,
 .signupBtn:hover {
     background-color: #007bff;
     box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
 }
 
-/* ---Terms of Policy ---- */
-.linksSinup {
-    color: #ff8500;
-    transition: color 0.3s ease;
-}
-
-.linksSinup:hover {
-    color: #007bff;
-}
-
+/* Container for title */
 .Text {
     text-align: center;
     margin: 15px;
-}
-
-.About {
-    color: #ff8500;
-    transition: color 0.3s ease;
-    font-size: 20px;
-    text-decoration: none;
-}
-
-.About:hover {
-    color: #007bff;
 }
 
 .descriptionTitle h2 {
@@ -157,88 +115,23 @@
     background-clip: text;
     font-weight: 600;
     line-height: 56px;
-    margin-bottom: 0;
-    margin-top: 0;
-    text-align: left;
-    margin-left: 0;
+    margin: 0;
 }
 
-.descriptionText p {
+/* Container for body */
+.descriptionText {
     font-family: sans-serif;
     font-style: normal;
     line-height: 1.5;
-    color: #343a40;
+    color: var(--text-color);
     font-size: 14px;
     margin: 0;
     padding: 10px;
     text-align: left;
-    width: 100%;
 }
 
-/* Button styles */
-.signInButton {
-    font-size: 16px;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #ff8500;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    width: 100px;
-    transition: background-color 0.3s, box-shadow 0.3s;
-}
-
-.signInButton:hover {
-    background-color: #007bff;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
-}
-
-.signupPageContainer {
-    flex: 1;
-    padding: 30px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    position: relative;
-    padding-top: 20px;
-    width: 50%;
-}
-
-@media (max-width: 768px) {
-    .signupPageContainer {
-        margin-left: 8px;
-        margin-right: 8px;
-        padding-left: 8px;
-        padding-right: 8px;
-    }
-}
-
-/* --------------------- */
-
-/* Description Container */
-.description {
-    width: 50%;
-    margin-left: 15px;
-    margin-right: 15px;
-}
-
-/* Flex row setup for larger screens */
-.rowHeroPadd {
-    display: flex;
-    flex-direction: row;
-    gap: 15px;
-}
-
-/* Form container styling */
-.signupForm {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-/* General form input styling */
 .formInput {
+    margin-bottom: 8px;
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
@@ -253,13 +146,11 @@
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
 }
 
-/* Error styling for form inputs */
 .formInput.error {
     border: 2px solid red;
     background-color: #ffe6e6;
 }
 
-/* Error message styling */
 .errorMessage {
     color: red;
     font-size: 14px;
@@ -267,23 +158,7 @@
     display: block;
 }
 
-/* Input container for first and last name */
-.row {
-    display: flex;
-    gap: 15px;
-}
-
-/* Styling for individual input columns */
-.Name {
-    flex: 1;
-}
-
-/* Remove padding for specific columns */
-.noPadding {
-    padding: 0;
-}
-
-/* Styling for password field with icon */
+/* Container for password */
 .pwdMask {
     position: relative;
 }
@@ -296,66 +171,43 @@
     cursor: pointer;
 }
 
-/* Style for the heading with gradient text */
-.disBtn,
-.lnkToggler {
-    font-size: 16px;
-    padding: 10px 20px;
-    width: auto;
-    height: auto;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .Name {
+        flex-direction: column;
+    }
+
+    .signupPageContainer {
+        max-width: 100%;
+        min-width: 50px;
+    }
+
+    .description {
+        margin: 0 10px;
+        max-width: 100%;
+        min-width: 50px;
+    }
 }
 
-.disBtn,
-.lnkToggler {
-    background-color: #ff8500;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    text-decoration: none;
-    margin-bottom: 40px;
-}
+@media (min-width: 768px) {
+    .Name {
+        display: flex;
+        gap: 15px;
+        flex-direction: row;
+    }
 
-.disBtn:hover,
-.lnkToggler:hover {
-    background-color: #007bff;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.5);
-}
+    .signupPageContainer {
+        margin: 100px;
+        max-width: 100%;
+        /* padding: 70px; */
+    }
 
-/* Logo Container */
-.links {
-    color: #ff8500;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
+    .description {
+        margin: 0 50px 0 10px;
+        max-width: 100%;
+    }
 
-.links:hover {
-    color: #007bff;
-}
-
-.pwdMask {
-    position: relative;
-}
-
-.pwdMask .fa {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    cursor: pointer;
-}
-
-.faEye::before {
-    content: "\f06e";
-    /* FontAwesome eye icon */
-    font-family: FontAwesome;
-}
-
-.faEyeSlash::before {
-    content: "\f070";
-    /* FontAwesome eye-slash icon */
-    font-family: FontAwesome;
+    .entirePagePad {
+        flex-direction: row;
+    }
 }
