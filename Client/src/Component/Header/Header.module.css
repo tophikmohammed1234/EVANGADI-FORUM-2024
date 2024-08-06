@@ -1,25 +1,19 @@
+/* Base styles */
 .header {
-    /* margin-bottom: 20px; */
-    /* margin-top: 50px; */
-
-    /* text-align: left; */
-    /* line-height: 1.5; */
+  position: sticky;
     font-size: 16px;
     color: #191919;
     font-family: "Poppins", sans-serif;
     font-weight: normal;
     box-sizing: border-box;
     padding: 10px 100px;
-    position: fixed;
     z-index: 1000;
     top: 0;
     right: 0;
     left: 0;
-    /* align-items: center; */
     display: flex;
     justify-content: space-between;
-    transition: transform 0.4s ease-in-out, background-color 0.5s linear,
-        padding 0.2s ease-in;
+    transition: transform 0.4s ease-in-out, background-color 0.5s linear, padding 0.2s ease-in;
     box-shadow: 0 2px 4px rgba(81, 107, 152, 0.16);
     width: 100%;
     background: #fff;
@@ -33,7 +27,6 @@
 
 .header .canvasOpen {
     display: flex;
-    /* align-items: center; */
     padding-right: 20px;
 }
 
@@ -48,57 +41,67 @@
     color: #000;
 }
 
-/* @media (max-width: 768px) {
-  .header {
-    padding: 0 10px;
-  }
-
-  .header .logo {
-    padding-left: 10px;
-  }
-
-  .header .canvasOpen {
-    padding-right: 10px;
-  }
-
-  .header .densityIcon {
-    font-size: 24px;
-  }
-} */
-
-/* @media (max-width: 480px) {
-  .header {
-    padding: 0 5px;
-  }
-
-  .header .logo {
-    padding-left: 5px;
-  }
-
-  .header .canvasOpen {
-    padding-right: 5px;
-  }
-
-  .header .densityIcon {
-    font-size: 40px;
-  }
-} */
-
-/* animation */
-
+/* Animation */
 .logo {
-    /* max-width: 150px; */
     animation: bounce 2s infinite;
 }
 
 @keyframes bounce {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-10px);
+    }
+}
+
+/* Media Queries */
+
+/* Large devices (desktops, 1024px and up) */
+@media (max-width: 1200px) {
+    .header {
+        padding: 10px 50px;
+    }
+}
+
+/* Medium devices (tablets, 768px to 1024px) */
+@media (max-width: 1024px) {
+    .header {
+        padding: 10px 30px;
+    }
+    .header .densityIcon {
+        font-size: 40px;
+    }
+}
+
+/* Small devices (phones, 600px to 768px) */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+    }
+    .header .logo {
+        padding-left: 10px;
+    }
+    .header .canvasOpen {
+        padding-right: 10px;
+    }
+    .header .densityIcon {
+        font-size: 32px;
+    }
+}
+
+/* Extra small devices (phones, less than 600px) */
+@media (max-width: 600px) {
+    .header {
+        padding: 10px 10px;
+    }
+    .header .logo {
+        padding-left: 5px;
+    }
+    .header .canvasOpen {
+        padding-right: 5px;
+    }
+    .header .densityIcon {
+        font-size: 28px;
     }
 }
