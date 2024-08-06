@@ -5,7 +5,7 @@ import { AppState } from "../../App";
 import styles from "./Login.module.css";
 import Header from "../../Component/Header/Header";
 import Footer from "../../Component/Footer/Footer";
-import "@fortawesome/fontawesome-free/css/all.min.css"; // Import FontAwesome CSS
+import "@fortawesome/fontawesome-free/css/all.min.css";
 
 function Login() {
 	const [formErrors, setFormErrors] = useState({});
