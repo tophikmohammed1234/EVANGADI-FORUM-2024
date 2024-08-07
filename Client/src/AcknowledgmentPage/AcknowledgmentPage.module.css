@@ -5,7 +5,10 @@
   justify-content: center;
   min-height: 100vh;
   padding: 20px;
-  background: #f9f9f9;
+  background: linear-gradient(135deg, #f0f4f8, #cfe0e8);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .medal {
@@ -19,28 +22,74 @@
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
+.decorations {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.heart,
+.star {
+  font-size: 24px;
+  animation: bounce 2s infinite alternate;
+}
+
+.heart {
+  color: #ff6b6b;
+}
+
+.star {
+  color: #ffd700;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.messageBox {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 2s forwards, slideIn 2s forwards;
+}
+
 .message {
   max-width: 800px;
-  text-align: center;
   font-size: 18px;
   color: #343a40;
   line-height: 1.6;
-  opacity: 0; /* Start hidden */
-  animation: fadeIn 2s forwards; /* Animation to fade in */
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
   }
+
   to {
     opacity: 1;
-    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(0);
   }
 }
