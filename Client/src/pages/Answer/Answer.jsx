@@ -17,6 +17,9 @@ const Answer = () => {
   const [isanswered, setAnswer] = useState(false);
   const [charCount, setCharCount] = useState(0);
   const [showCharCount, setShowCharCount] = useState(false);
+  const [answerRequired, setanswerRequired] = useState(false);
+  
+
 
   // Fetch the question title and description
   async function getQuestionDetail() {
@@ -30,11 +33,9 @@ const Answer = () => {
         },
       };
       const res = await axiosInstance.get(`/questions/${question_id}`, config);
-      console.log("Question Detail:", res.data); // Log question detail
-
-      // Accessing the first item in the question array
-      const question = res.data.question && res.data.question[0];
-      setQuestionDetail(question || {});
+  
+      const question = res.data.question[0] ;
+      setQuestionDetail(question);
     } catch (error) {
       console.log(error);
     }
@@ -79,25 +80,33 @@ const Answer = () => {
         },
       };
       const res = await axiosInstance.get(`/answers/${question_id}`, config);
-      console.log("Answers:", res.data); // Log answers
+    
 
-      // Accessing the answer array
-      setAnswers(res.data.answers || []);
+      
+      setAnswers(res.data.answers);
     } catch (error) {
       console.log(error.response);
     }
   }
 
   // Post an answer
-  async function answerForQuestion(e) {
+  async function postAnswer(e) {
     e.preventDefault();
 
-    const Answer = postedanswer.current?.value;
+    const Answer = postedanswer.current.value;
 
-    if (!Answer) {
-      alert("Please provide the answer");
-      return;
+      let hasError = false;
+      if (!Answer) {
+        setanswerRequired(true);
+        hasError = true;
+      } else {
+        setanswerRequired(false);
     }
+     if (hasError) {
+       return;
+     }
+
+  
 
     try {
       const token = localStorage.getItem("token");
@@ -122,7 +131,7 @@ const Answer = () => {
       getAnswers();
       setAnswer(true);
 
-      // Set a timer to remove the success message after 3 seconds
+      // Set a timer to remove the Answer posted successfully  message after 3 seconds
       const timeoutId = setTimeout(() => {
         setAnswer(false);
       }, 3000);
@@ -138,13 +147,14 @@ const Answer = () => {
     getAnswers();
   }, [question_id]);
 
-  // Destructure question_detail with default values
-  const { title = "No Title", description = "No Description" } =
+  // Destructure question_detail values
+  const { title , description  } =
     question_detail;
 
   return (
     <LayOut>
       <section className={`${classes.outer_wrapper} container`}>
+
         {/* =============QUESTION DETAIL SECTION============== */}
         <section className={`${classes.question_detail_wrapper}`}>
           {question_detail && (
@@ -181,14 +191,14 @@ const Answer = () => {
                 <AnswerCard key={i} getAnswer={getAnswer} />
               ))
             ) : (
-              <p>No answers yet.</p> // Display a message if there are no answers
+              <p>No answers yet.</p> 
             )}
           </section>
         </section>
 
         {/* ============POST ANSWER SECTION============== */}
         <section className={`${classes.post_answer_wrapper}`}>
-          <form onSubmit={answerForQuestion}>
+          <form onSubmit={postAnswer}>
             {isanswered && (
               <h5 className={classes.alert_msg}>Answer posted successfully</h5>
             )}
@@ -202,8 +212,13 @@ const Answer = () => {
               name="postedanswer"
               id="postedanswer"
               placeholder="Your answer ..."
-              className="w-100 mt-4 p-3"
+              className={`${
+                answerRequired ? classes.answer_filed_error : ""
+              }  w-100 mt-4 p-3`}
             ></textarea>
+            {answerRequired && (
+              <p className={`text-danger `}>Answer is required</p>
+            )}
             {showCharCount && (
               <small className={`${classes.characterCount} my-3`}>
                 {charCount}/200
