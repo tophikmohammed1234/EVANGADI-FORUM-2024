@@ -1,0 +1,137 @@
+.outer_wrapper {
+  width: 80%;
+  margin: 0 auto;
+}
+
+
+/*========== Question Detail section style========== */
+
+.question_detail_wrapper hr {
+  margin: 10px 0;
+}
+.bottom_border {
+  height: 3px;
+  background-color: orange;
+  width: 15px;
+  margin-bottom: 10px;
+  margin-left: 30px;
+  transition: all 0.98s ease 0s;
+}
+.bottom_border:hover {
+  width: 18%;
+  transition: all 0.5s ease 0s;
+}
+.question_title {
+  display: flex;
+}
+
+.title {
+  color: #482602;
+}
+
+.question_title span svg {
+  margin-top: 5px;
+  font-size: 35px;
+}
+.description {
+  font-size: 22px;
+  margin-left: 25px;
+}
+
+/* ========== Get Answer section style==========  */
+.answerWrapper {
+  display: flex;
+}
+.answerWrapper div {
+  margin-right: 35px;
+}
+.userProfile svg {
+  font-size: 55px;
+}
+.answer_wrapper {
+  max-height: 40vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background: #f5f5f5;
+  z-index: 0;
+}
+.answer_wrapper > div {
+  border-bottom: 1px solid #c4c5c6;
+  margin: 15px 30px;
+}
+.userProfile {
+  margin-left: 10px;
+}
+.answers {
+  width: 100%;
+  margin-top: 15px;
+}
+
+/* ========== Post Answer section style==========  */
+.post_answer_wrapper {
+  margin-top: 25px;
+}
+
+.post_answer_wrapper textarea {
+  height: 25vh;
+  border-radius: 10px;
+  border: 1px solid #35355e;
+}
+
+hr {
+  color: #c4c5c6;
+}
+.button {
+  background-color: #0b5ed7;
+  cursor: pointer;
+  color: white;
+  padding: 10px 30px;
+  border-radius: 8px;
+  border: none;
+  margin-top: 20px;
+}
+.button:hover {
+  background-color: #ff8500;
+}
+.alert_msg {
+  font-weight: bold;
+  color: #0b5ed7;
+}
+.characterCount{
+  margin-left: 90%;
+  border : 2px solid orange;
+  padding: 4px;
+  border-radius: 8px;
+}
+@media (max-width:450px){
+ 
+  .question_title span svg{
+    font-size:25px ;
+  }
+   .description {
+
+  margin-left:0;
+}
+.userProfile svg {
+  font-size: 45px;
+}
+.answerWrapper div {
+  margin-right: 15px;
+}
+ .answers{
+  font-size: 3.4vw;
+}
+ .answer_wrapper > div {
+ margin: 0;
+}
+.userProfile {
+  margin-left: 2px;
+}
+.username{
+  font-size: 3vw;
+}
+.characterCount{
+   margin-left: 77%;
+}
+
+}

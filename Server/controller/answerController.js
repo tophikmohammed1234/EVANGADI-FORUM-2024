@@ -3,65 +3,72 @@ const { StatusCodes } = require("http-status-codes");
 
 // Post answer for questions
 async function postAnswer(req, res) {
-	const { answer } = req.body;
-	const question_id = req.params.question_id;
-	const userid = req.user.userid;
-	// Validate request body
-	if (!answer) {
-		return res.status(StatusCodes.BAD_REQUEST).json({
-			message: "Please provide  answer.",
-		});
-	}
+    const { answer } = req.body;
+    const question_id = req.params.question_id;
+    const userid = req.user.userid;
 
-	try {
-		// Insert answer into database
-		const [result] = await dbConnection.query(
-			"INSERT INTO answerTable (userid, questionid, answer) VALUES (?,?, ?)",
-			[userid, question_id, answer]
-		);
+    // Validate request body
+    if (!answer) {
+        return res.status(StatusCodes.BAD_REQUEST).json({
+            message: "Please provide an answer.",
+        });
+    }
 
-		// Check if insertion was successful
-		if (result.affectedRows === 0) {
-			return res.status(StatusCodes.BAD_REQUEST).json({
-				message: "Failed to insert answer.",
-			});
-		}
+    try {
+        // Insert answer into database
+        const [result] = await dbConnection.query(
+            "INSERT INTO answerTable (userid, questionid, answer) VALUES (?, ?, ?)",
+            [userid, question_id, answer]
+        );
 
-		// Respond with success message
-		return res.status(StatusCodes.CREATED).json({
-			message: "Answer posted successfully",
-		});
-	} catch (error) {
-		return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-			message: "An unexpected error occurred.",
-		});
-	}
+        // Check if insertion was successful
+        if (result.affectedRows === 0) {
+            return res.status(StatusCodes.BAD_REQUEST).json({
+                message: "Failed to insert answer.",
+            });
+        }
+
+        // Respond with success message
+        return res.status(StatusCodes.CREATED).json({
+            message: "Answer posted successfully",
+        });
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            message: "An unexpected error occurred.",
+        });
+    }
 }
+
 async function getAnswer(req, res) {
-	const questionid = req.params.questionid;
-	try {
-		const [answer] = await dbConnection.query(
-			`SELECT 
-    answerTable.answerId, 
-    answerTable.answer, 
-    userTable.username, 
-    questionTable.tag
-FROM 
-    answerTable
-    JOIN userTable ON answerTable.userId = userTable.userId
-    JOIN questionTable ON answerTable.questionId = questionTable.questionId
-WHERE 
-    questionTable.questionId = ?
-ORDER BY 
-    answerTable.answerId ASC`,
-			[questionid]
-		);
-		return res.status(StatusCodes.OK).json({ answer });
-	} catch (error) {
-		return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
-			message: "An unexpected error occurred.",
-		});
-	}
+    const question_id = req.params.question_id;
+
+    try {
+        const [answers] = await dbConnection.query(
+            `SELECT 
+                answerTable.answerId, 
+                answerTable.answer, 
+                userTable.username, 
+                questionTable.tag
+            FROM 
+                answerTable
+                JOIN userTable ON answerTable.userid = userTable.userid
+                JOIN questionTable ON answerTable.questionid = questionTable.questionid
+            WHERE 
+                questionTable.questionid = ?
+            ORDER BY 
+                answerTable.answerId ASC`,
+            [question_id]
+        );
+
+        // Respond with fetched answers
+        return res.status(StatusCodes.OK).json({ answers });
+    } catch (error) {
+        console.error(error); // Log the error for debugging
+        return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
+            message: "An unexpected error occurred.",
+        });
+    }
 }
 
 module.exports = { postAnswer, getAnswer };
