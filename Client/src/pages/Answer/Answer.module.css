@@ -9,6 +9,7 @@
 .question_detail_wrapper hr {
   margin: 10px 0;
 }
+
 .bottom_border {
   height: 3px;
   background-color: orange;
@@ -17,10 +18,12 @@
   margin-left: 30px;
   transition: all 0.98s ease 0s;
 }
+
 .bottom_border:hover {
   width: 18%;
   transition: all 0.5s ease 0s;
 }
+
 .question_title {
   display: flex;
 }
@@ -33,6 +36,7 @@
   margin-top: 5px;
   font-size: 35px;
 }
+
 .description {
   font-size: 22px;
   margin-left: 25px;
@@ -42,26 +46,32 @@
 .answerWrapper {
   display: flex;
 }
+
 .answerWrapper div {
   margin-right: 35px;
 }
+
 .userProfile svg {
   font-size: 55px;
 }
+
 .answer_wrapper {
-  max-height: 40vh;
+  max-height: 50vh;
   overflow-y: scroll;
   overflow-x: hidden;
   background: #f5f5f5;
   z-index: 0;
 }
-.answer_wrapper > div {
+
+.answer_wrapper>div {
   border-bottom: 1px solid #c4c5c6;
   margin: 15px 30px;
 }
+
 .userProfile {
   margin-left: 10px;
 }
+
 .answers {
   width: 100%;
   margin-top: 15px;
@@ -81,6 +91,7 @@
 hr {
   color: #c4c5c6;
 }
+
 .button {
   background-color: #0b5ed7;
   cursor: pointer;
@@ -90,48 +101,64 @@ hr {
   border: none;
   margin-top: 20px;
 }
+
 .button:hover {
   background-color: #ff8500;
 }
+
 .alert_msg {
   font-weight: bold;
   color: #0b5ed7;
 }
-.characterCount{
+
+.characterCount {
   margin-left: 90%;
-  border : 2px solid orange;
+  border: 2px solid orange;
   padding: 4px;
   border-radius: 8px;
 }
-@media (max-width:450px){
- 
-  .question_title span svg{
-    font-size:25px ;
-  }
-   .description {
 
-  margin-left:0;
+.answer_filed_error {
+  background-color: #ffe6e6;
 }
-.userProfile svg {
-  font-size: 45px;
-}
-.answerWrapper div {
-  margin-right: 15px;
-}
- .answers{
-  font-size: 3.4vw;
-}
- .answer_wrapper > div {
- margin: 0;
-}
-.userProfile {
-  margin-left: 2px;
-}
-.username{
-  font-size: 3vw;
-}
-.characterCount{
-   margin-left: 77%;
-}
+
+@media (max-width:450px) {
+
+  .question_title span svg {
+    font-size: 25px;
+  }
+
+  .description {
+
+    margin-left: 0;
+  }
+
+  .userProfile svg {
+    font-size: 45px;
+  }
+
+  .answerWrapper div {
+    margin-right: 15px;
+  }
+
+  .answers {
+    font-size: 3.4vw;
+  }
+
+  .answer_wrapper>div {
+    margin: 0;
+  }
+
+  .userProfile {
+    margin-left: 2px;
+  }
+
+  .username {
+    font-size: 3vw;
+  }
+
+  .characterCount {
+    margin-left: 77%;
+  }
 
 }

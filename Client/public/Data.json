@@ -1,0 +1,318 @@
+{
+	"kind": "youtube#searchListResponse",
+	"etag": "nBoP6XMr47wYij3Smcl2ctVgSSU",
+	"nextPageToken": "CAkQAA",
+	"regionCode": "ET",
+	"pageInfo": {
+		"totalResults": 41,
+		"resultsPerPage": 9
+	},
+	"items": [
+		{
+			"kind": "youtube#searchResult",
+			"etag": "gLeYmTWPeWxt_hGkGebeZEtJiNQ",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "_n0Fm8GGtaE"
+			},
+			"snippet": {
+				"publishedAt": "2024-06-16T16:10:07Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "ክፍት የሥራ ቦታዎች ማስታወቂያ",
+				"description": "አዲስ ጀማሪዎች መምረጥ ያለባችሁ የቴክኖሎጂ ፊልዶች https://www.youtube.com/watch?v=kpfzbZkeJc0 ሁሉም ሰው ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/_n0Fm8GGtaE/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/_n0Fm8GGtaE/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/_n0Fm8GGtaE/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-06-16T16:10:07Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "XY4j2LmkXVrgots-XibfBVYmuk0",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "g40yzHvQzzU"
+			},
+			"snippet": {
+				"publishedAt": "2024-06-04T21:10:22Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "Winners for the June 2024 batch",
+				"description": "Congratulation to the 1600+ applicants who will receive free access of our course materials. If your name appears on the list ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/g40yzHvQzzU/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/g40yzHvQzzU/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/g40yzHvQzzU/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-06-04T21:10:22Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "oB8HgOuBG0OtDMfuKAt5ls8EHTc",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "8eTjYwUckSI"
+			},
+			"snippet": {
+				"publishedAt": "2024-05-28T16:48:29Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "Last week of registration for June 6th, 2024 Batch",
+				"description": "የመጨረሻ የምዝገባ ሣምንት ---------------------------- የሚቀጥለው የፉል ስታክ ዌብ ደቨሎፕመንት ኮርስ (Full Stack Web ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/8eTjYwUckSI/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/8eTjYwUckSI/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/8eTjYwUckSI/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-05-28T16:48:29Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "gPKjeBUlM8dApk0LBLLsMBkBjMk",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "7kQwJ_ZAHsE"
+			},
+			"snippet": {
+				"publishedAt": "2024-05-12T07:28:20Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "Next class will start on June 6th, 2024 - (Full Stack Web Development - MERN Stack)",
+				"description": "የሚቀጥለው የፉል ስታክ ዌብ ደቨሎፕመንት ኮርስ (Full Stack Web Development - MERN Stack Course) የፊታችን April 1st ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/7kQwJ_ZAHsE/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/7kQwJ_ZAHsE/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/7kQwJ_ZAHsE/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-05-12T07:28:20Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "OQkVKLc2ZzTJhB5LC_KPnuOhsbU",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "-Sh6FHBTccc"
+			},
+			"snippet": {
+				"publishedAt": "2024-04-02T20:28:54Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "ነፃ ዕድል ለተሰጣችሁ ተማሪዎች - How to access the materials",
+				"description": "",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/-Sh6FHBTccc/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/-Sh6FHBTccc/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/-Sh6FHBTccc/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-04-02T20:28:54Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "nhbWDFUVi6PYuNv49cZxwyQuFOI",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "Fupb0GnxYAw"
+			},
+			"snippet": {
+				"publishedAt": "2024-03-29T22:26:14Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "April batch is FULL!! - Next batch will start in two months",
+				"description": "አዲስ ጀማሪ ከሆኑ፣ ከየት መጀመር እንዳለቦት ለመረዳት ይህን ቪድዮ ይመልከቱ ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/Fupb0GnxYAw/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/Fupb0GnxYAw/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/Fupb0GnxYAw/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-03-29T22:26:14Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "iCAHD-TUPVwdomsJIR-9is1-a50",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "RnoWRXh0vNo"
+			},
+			"snippet": {
+				"publishedAt": "2024-03-07T14:55:44Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "Next class will start on April 1st, 2024 - (Full Stack Web Development - MERN Stack)",
+				"description": "የሚቀጥለው የፉል ስታክ ዌብ ደቨሎፕመንት ኮርስ (Full Stack Web Development - MERN Stack Course) የፊታችን April 1st ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/RnoWRXh0vNo/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/RnoWRXh0vNo/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/RnoWRXh0vNo/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-03-07T14:55:44Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "3quxXUgz1U4uNiDE28RFJmLn7z8",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "YFmjXP1lg-g"
+			},
+			"snippet": {
+				"publishedAt": "2024-01-19T22:35:58Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "በ2 ዓመት ውስጥ ፕሮግራሚንግን ከሆሳዕና ተምራ ከአውሮፓ የርቀት ሥራ ያገኝችው ታታሪ ወጣት",
+				"description": "አዲስ ጀማሪዎች መምረጥ ያለባችሁ የቴክኖሎጂ ፊልዶች https://www.youtube.com/watch?v=kpfzbZkeJc0 ሁሉም ሰው ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/YFmjXP1lg-g/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/YFmjXP1lg-g/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/YFmjXP1lg-g/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2024-01-19T22:35:58Z"
+			}
+		},
+		{
+			"kind": "youtube#searchResult",
+			"etag": "sZeRlsjC0Nl-T5c1-J9UPl7EmU8",
+			"id": {
+				"kind": "youtube#video",
+				"videoId": "vspeGH_97GE"
+			},
+			"snippet": {
+				"publishedAt": "2023-08-12T22:42:43Z",
+				"channelId": "UCxA7AzkI2Sndf8S1G5rSkwQ",
+				"title": "በ 8 ወር ውስጥ ፕሮግራመር የሆነው የ4ኛ ክፍል ተማሪ",
+				"description": "አዲስ ጀማሪዎች መምረጥ ያለባችሁ የቴክኖሎጂ ፊልዶች https://www.youtube.com/watch?v=kpfzbZkeJc0 ሁሉም ሰው ...",
+				"thumbnails": {
+					"default": {
+						"url": "https://i.ytimg.com/vi/vspeGH_97GE/default.jpg",
+						"width": 120,
+						"height": 90
+					},
+					"medium": {
+						"url": "https://i.ytimg.com/vi/vspeGH_97GE/mqdefault.jpg",
+						"width": 320,
+						"height": 180
+					},
+					"high": {
+						"url": "https://i.ytimg.com/vi/vspeGH_97GE/hqdefault.jpg",
+						"width": 480,
+						"height": 360
+					}
+				},
+				"channelTitle": "Evangadi Tech",
+				"liveBroadcastContent": "none",
+				"publishTime": "2023-08-12T22:42:43Z"
+			}
+		}
+	]
+}
