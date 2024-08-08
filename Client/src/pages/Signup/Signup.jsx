@@ -15,28 +15,89 @@ function Signup() {
 	const [showPassword, setShowPassword] = useState(false);
 	const [formErrors, setFormErrors] = useState({});
 
+	// Validation functions
+	const validateUsername = () => {
+		const userNameValue = userNameDom.current.value;
+		if (!userNameValue) {
+			setFormErrors((prev) => ({ ...prev, username: "Username is required" }));
+			return false;
+		} else {
+			setFormErrors((prev) => ({ ...prev, username: "" }));
+			return true;
+		}
+	};
+
+	const validateFirstName = () => {
+		const firstNameValue = firstNameDom.current.value;
+		if (!firstNameValue) {
+			setFormErrors((prev) => ({
+				...prev,
+				firstName: "First name is required",
+			}));
+			return false;
+		} else {
+			setFormErrors((prev) => ({ ...prev, firstName: "" }));
+			return true;
+		}
+	};
+
+	const validateLastName = () => {
+		const lastNameValue = lastNameDom.current.value;
+		if (!lastNameValue) {
+			setFormErrors((prev) => ({ ...prev, lastName: "Last name is required" }));
+			return false;
+		} else {
+			setFormErrors((prev) => ({ ...prev, lastName: "" }));
+			return true;
+		}
+	};
+
+	const validateEmail = () => {
+		const emailValue = emailDom.current.value;
+		if (!emailValue) {
+			setFormErrors((prev) => ({ ...prev, email: "Email is required" }));
+			return false;
+		} else {
+			setFormErrors((prev) => ({ ...prev, email: "" }));
+			return true;
+		}
+	};
+
+	const validatePassword = () => {
+		const passwordValue = passwordDom.current.value;
+		if (!passwordValue) {
+			setFormErrors((prev) => ({ ...prev, password: "Password is required" }));
+			return false;
+		} else {
+			setFormErrors((prev) => ({ ...prev, password: "" }));
+			return true;
+		}
+	};
+
+	// Toggle password visibility
 	const togglePasswordVisibility = () => {
 		setShowPassword((prev) => !prev);
 	};
 
+	// Handle form submission
 	async function handleSubmit(e) {
 		e.preventDefault();
+		const isFormValid =
+			validateUsername() &&
+			validateFirstName() &&
+			validateLastName() &&
+			validateEmail() &&
+			validatePassword();
+
+		if (!isFormValid) {
+			return;
+		}
+
 		const userNameValue = userNameDom.current.value;
 		const firstNameValue = firstNameDom.current.value;
 		const lastNameValue = lastNameDom.current.value;
 		const emailValue = emailDom.current.value;
 		const passwordValue = passwordDom.current.value;
-
-		if (
-			!userNameValue ||
-			!firstNameValue ||
-			!lastNameValue ||
-			!emailValue ||
-			!passwordValue
-		) {
-			alert("Please fill all the fields");
-			return;
-		}
 
 		try {
 			await axios.post("/users/register", {
@@ -82,6 +143,7 @@ function Signup() {
 									}`}
 									name="username"
 									placeholder="User Name"
+									onBlur={validateUsername}
 								/>
 								{formErrors.username && (
 									<span className={styles.errorMessage}>
@@ -98,12 +160,14 @@ function Signup() {
 										}`}
 										name="firstName"
 										placeholder="First Name"
+										onBlur={validateFirstName}
 									/>
 									{formErrors.firstName && (
 										<span className={styles.errorMessage}>
 											{formErrors.firstName}
 										</span>
 									)}
+
 									<input
 										ref={lastNameDom}
 										type="text"
@@ -112,6 +176,7 @@ function Signup() {
 										}`}
 										name="lastName"
 										placeholder="Last Name"
+										onBlur={validateLastName}
 									/>
 									{formErrors.lastName && (
 										<span className={styles.errorMessage}>
@@ -119,6 +184,7 @@ function Signup() {
 										</span>
 									)}
 								</div>
+
 								<input
 									ref={emailDom}
 									type="email"
@@ -127,6 +193,7 @@ function Signup() {
 									}`}
 									name="email"
 									placeholder="Email Address"
+									onBlur={validateEmail}
 								/>
 								{formErrors.email && (
 									<span className={styles.errorMessage}>
@@ -143,6 +210,7 @@ function Signup() {
 										}`}
 										name="password"
 										placeholder="Password"
+										onBlur={validatePassword}
 									/>
 									<span
 										className={`${styles.fa} ${
@@ -150,12 +218,13 @@ function Signup() {
 										}`}
 										onClick={togglePasswordVisibility}
 									></span>
-									{formErrors.password && (
-										<span className={styles.errorMessage}>
-											{formErrors.password}
-										</span>
-									)}
 								</div>
+								{formErrors.password && (
+									<span className={styles.errorMessage}>
+										{formErrors.password}
+									</span>
+								)}
+
 								<div className={styles.Text}>
 									I agree to the{" "}
 									<Link className={styles.linksSinup} to="/terms">

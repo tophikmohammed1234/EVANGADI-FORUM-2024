@@ -6,14 +6,16 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { TypeAnimation } from "react-type-animation";
 import backGroundPic from "../../assets/images/blackLogo.png";
-import img1 from "../../assets/for-landing-page/Default_a_full_stack_web_development_student_study_for_his_tes_0.jpg";
+import img1 from "../../assets/for-landing-page/test.jpg";
 import img2 from "../../assets/for-landing-page/10002.jpg";
 import img3 from "../../assets/for-landing-page/10003.jpg";
 import img4 from "../../assets/for_card/10001.png";
 import img5 from "../../assets/for_card/100011.jpg";
 import img6 from "../../assets/for_card/10002.jpeg";
-import img7 from "../../assets/for-landing-page/Default_a_full_stack_web_development_student_study_for_his_tes_3.jpg";
+import img7 from "../../assets/for-landing-page/office.jpg";
 import { AppState } from "../../App";
+import YoutubeVideos from "../YouTube/YoutubeVideos";
+import Footer from "../../Component/Footer/Footer";
 
 function LandingPage() {
 	const [navOpen, setNavOpen] = useState(false);
@@ -32,6 +34,9 @@ function LandingPage() {
 
 	function AskQuestionPage() {
 		navigate("/questions");
+	}
+	function VisitUs() {
+		navigate("/home");
 	}
 
 	return (
@@ -138,35 +143,53 @@ function LandingPage() {
 				</Card>
 			</div>
 			<div className={classes.bottomCard}>
-				{[
-					{
-						img: img4,
-						title: "Don't Worry",
-						text: "Stuck on a complex coding problem? Post your question and let our community help you find the solution!",
-					},
-					{
-						img: img5,
-						title: "Ask Here",
-						text: "Have a burning question about full-stack development? Share it here and tap into the collective wisdom of our community!",
-					},
-					{
-						img: img6,
-						title: "Give us your Answer",
-						text: "By helping others, you not only reinforce your own understanding but also build a stronger, more supportive community.",
-					},
-				].map((item, index) => (
-					<Card style={{ width: "18rem", margin: "5vh auto" }} key={index}>
-						<Card.Img variant="top" src={item.img} />
-						<Card.Body>
-							<Card.Title>{item.title}</Card.Title>
-							<Card.Text>{item.text}</Card.Text>
-							<Button onClick={handleAuthAction} variant="outline-primary">
-								{user ? "home" : "login"}
-							</Button>
-						</Card.Body>
-					</Card>
-				))}
+				<Card className={classes.card}>
+					<Card.Img variant="top" src={img4} />
+					<Card.Body>
+						<Card.Title>Don't Worry</Card.Title>
+						<Card.Text>
+							Stuck on a complex coding problem? Post your question and let our
+							community help you find the solution!
+						</Card.Text>
+						<Button onClick={AskQuestionPage} variant="outline-primary">
+							{user ? "Post" : "login"}
+						</Button>
+					</Card.Body>
+				</Card>
+
+				<Card className={classes.card}>
+					<Card.Img variant="top" src={img5} />
+					<Card.Body>
+						<Card.Title>Ask Here</Card.Title>
+						<Card.Text>
+							Have a burning question about full-stack development? Share it
+							here and tap into the collective wisdom of our community!
+						</Card.Text>
+						<Button onClick={AskQuestionPage} variant="outline-primary">
+							{user ? "Ask Here" : "login"}
+						</Button>
+					</Card.Body>
+				</Card>
+
+				<Card className={classes.card}>
+					<Card.Img variant="top" src={img6} />
+					<Card.Body>
+						<Card.Title>Give us your Answer</Card.Title>
+						<Card.Text>
+							By helping others, you not only reinforce your own understanding
+							but also build a stronger, more supportive community.
+						</Card.Text>
+						<Button onClick={VisitUs} variant="outline-primary">
+							{user ? "Visit Us" : "login"}
+						</Button>
+					</Card.Body>
+				</Card>
 			</div>
+
+			<div>
+				<YoutubeVideos />
+			</div>
+			<Footer />
 		</>
 	);
 }

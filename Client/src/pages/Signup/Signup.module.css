@@ -17,7 +17,6 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    margin-top: 45px;
 }
 
 .entirePagePad {
@@ -27,6 +26,10 @@
     align-items: center;
     min-height: 100vh;
     padding: 20px;
+}
+
+.errorBorder {
+    border: 1px solid red;
 }
 
 /* Container for Signup */

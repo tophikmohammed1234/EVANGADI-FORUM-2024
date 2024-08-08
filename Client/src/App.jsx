@@ -23,7 +23,6 @@ function App() {
 	async function checkUser() {
 		if (!token) {
 			setLoading(false);
-			console.log("No token found, navigating to login");
 			navigate("/login");
 			return;
 		}
@@ -65,7 +64,6 @@ function App() {
 				<Route path="/login" element={<Login />} />
 				<Route path="/signup" element={<Signup />} />
 				<Route path="/forgot-password" element={<ForgotPassword />} />
-				<Route path="/acknowledgment" element={<AcknowledgmentPage />} />
 				<Route
 					path="/home"
 					element={
@@ -87,6 +85,14 @@ function App() {
 					element={
 						<ProtectedRoute>
 							<Question />
+						</ProtectedRoute>
+					}
+				/>
+				<Route
+					path="/acknowledgment"
+					element={
+						<ProtectedRoute>
+							<AcknowledgmentPage />
 						</ProtectedRoute>
 					}
 				/>

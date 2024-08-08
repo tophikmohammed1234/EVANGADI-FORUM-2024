@@ -50,6 +50,12 @@ body {
 	color: #fe8303;
 }
 
+.navToggle {
+	display: none;
+	cursor: pointer;
+	margin: 10px 0;
+}
+
 .logo {
 	margin-right: auto;
 }
@@ -105,29 +111,17 @@ body {
 	max-width: 30%;
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	position: relative;
-	transition: transform 350ms ease, background-color 350ms ease, color 350ms ease;
+	transition: transform 250ms ease, background-color 250ms ease, color 350ms ease;
 }
 
 .imageCard:hover {
 	transform: scale(1.05);
 	background-color: #2D1D10;
 	color: white;
-	animation: imageCard 2s ease 0s 1 normal forwards;
+	cursor: pointer;
 }
 
-@keyframes imageCard {
-	0% {
-		opacity: 0;
-		transform: translateY(-250px);
-	}
-
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-.image {
+.imageCard img {
 	width: 100%;
 	border-radius: 10px;
 	aspect-ratio: 1 / 1;
@@ -149,51 +143,6 @@ body {
 	color: white;
 }
 
-.bottomCard {
-	display: flex;
-
-}
-
-.bottomCard :hover {
-	transform: scale(1.05);
-	background-color: #2D1D10;
-	color: white;
-	animation: bottomCard 2s ease 0s 1 normal forwards;
-}
-
-@keyframes bottomCard {
-
-	0%,
-	100% {
-		transform: rotate(0deg);
-		transform-origin: 50% 0;
-	}
-
-	10% {
-		transform: rotate(2deg);
-	}
-
-	20%,
-	40%,
-	60% {
-		transform: rotate(-4deg);
-	}
-
-	30%,
-	50%,
-	70% {
-		transform: rotate(4deg);
-	}
-
-	80% {
-		transform: rotate(-2deg);
-	}
-
-	90% {
-		transform: rotate(2deg);
-	}
-}
-
 .middle_text {
 	background-color: #344767;
 	height: 50vh;
@@ -209,6 +158,24 @@ body {
 	color: #FE8303;
 	font-size: 1.5em;
 	width: 50%;
+}
+
+.bottomCard {
+	display: flex;
+	justify-content: space-around;
+	flex-wrap: wrap;
+}
+
+.card {
+	transition: transform 250ms ease, background-color 250ms ease, color 250ms ease;
+	width: 18rem;
+	margin: 5vh auto;
+}
+
+.card:hover {
+	transform: scale(1.05);
+	background-color: #2D1D10;
+	color: white;
 }
 
 @media (max-width: 960px) {
@@ -244,79 +211,16 @@ body {
 		margin: 10px 0;
 	}
 
-	.imageCard:hover {
-		transform: scale(1.05);
-		background-color: #2D1D10;
-		color: white;
-		animation: imageCard 2s ease 0s 1 normal forwards;
-	}
-
-	@keyframes imageCard {
-		0% {
-			opacity: 0;
-			transform: translateY(-250px);
-		}
-
-		100% {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
-
-	bottomCard :hover {
-		transform: scale(1.05);
-		background-color: #2D1D10;
-		color: white;
-		animation: bottomCard 2s ease 0s 1 normal forwards;
-	}
-
-	@keyframes bottomCard {
-
-		0%,
-		100% {
-			transform: rotate(0deg);
-			transform-origin: 50% 0;
-		}
-
-		10% {
-			transform: rotate(2deg);
-		}
-
-		20%,
-		40%,
-		60% {
-			transform: rotate(-4deg);
-		}
-
-		30%,
-		50%,
-		70% {
-			transform: rotate(4deg);
-		}
-
-		80% {
-			transform: rotate(-2deg);
-		}
-
-		90% {
-			transform: rotate(2deg);
-		}
-	}
-
 	.middle_text {
-		background-color: #344767;
-		width: 100%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		text-align: center;
 		padding: 10px;
 	}
 
 	.middle_text h3 {
-		color: #FE8303;
-		font-size: 0.65em;
-		width: 50%;
+		font-size: 1em;
+	}
+
+	.bottomCard {
+		flex-direction: column;
 	}
 }
 
@@ -344,54 +248,12 @@ body {
 		flex-direction: column;
 	}
 
-	.imageCard:hover {
-		transform: scale(1.05);
-		background-color: #2D1D10;
-		color: white;
-	}
-
-	bottomCard :hover {
-		transform: scale(1.05);
-		background-color: #2D1D10;
-		color: white;
-		animation: bottomCard 2s ease 0s 1 normal forwards;
-	}
-
-	@keyframes bottomCard {
-
-		0%,
-		100% {
-			transform: rotate(0deg);
-			transform-origin: 50% 0;
-		}
-
-		10% {
-			transform: rotate(2deg);
-		}
-
-		20%,
-		40%,
-		60% {
-			transform: rotate(-4deg);
-		}
-
-		30%,
-		50%,
-		70% {
-			transform: rotate(4deg);
-		}
-
-		80% {
-			transform: rotate(-2deg);
-		}
-
-		90% {
-			transform: rotate(2deg);
-		}
+	.middle_text {
+		height: auto;
 	}
 }
 
-/* Dropdown Menu for max-width 440px */
+/* Dropdown Menu for max-width 768px */
 @media (max-width: 768px) {
 	.navList {
 		flex-direction: column;
@@ -423,119 +285,5 @@ body {
 	.navList.show .mybutton {
 		display: block;
 		width: 100%;
-	}
-
-	bottomCard :hover {
-		transform: scale(1.05);
-		background-color: #2D1D10;
-		color: white;
-		animation: bottomCard 2s ease 0s 1 normal forwards;
-	}
-
-	@keyframes bottomCard {
-
-		0%,
-		100% {
-			transform: rotate(0deg);
-			transform-origin: 50% 0;
-		}
-
-		10% {
-			transform: rotate(2deg);
-		}
-
-		20%,
-		40%,
-		60% {
-			transform: rotate(-4deg);
-		}
-
-		30%,
-		50%,
-		70% {
-			transform: rotate(4deg);
-		}
-
-		80% {
-			transform: rotate(-2deg);
-		}
-
-		90% {
-			transform: rotate(2deg);
-		}
-	}
-}
-
-@media (max-width: 480px) {
-	.navList {
-		flex-direction: column;
-		align-items: flex-start;
-		padding: 0 5vw;
-	}
-
-	.navToggle {
-		display: block;
-		cursor: pointer;
-		margin: 10px 0;
-	}
-
-	.navList a {
-		display: none;
-		width: 100%;
-		padding: 10px 0;
-		border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-	}
-
-	.navList.show a {
-		display: block;
-	}
-
-	.mybutton {
-		display: none;
-	}
-
-	.navList.show .mybutton {
-		display: block;
-		width: 100%;
-	}
-
-	bottomCard :hover {
-		transform: scale(1.05);
-		background-color: #2D1D10;
-		color: white;
-		animation: bottomCard 2s ease 0s 1 normal forwards;
-	}
-
-	@keyframes bottomCard {
-
-		0%,
-		100% {
-			transform: rotate(0deg);
-			transform-origin: 50% 0;
-		}
-
-		10% {
-			transform: rotate(2deg);
-		}
-
-		20%,
-		40%,
-		60% {
-			transform: rotate(-4deg);
-		}
-
-		30%,
-		50%,
-		70% {
-			transform: rotate(4deg);
-		}
-
-		80% {
-			transform: rotate(-2deg);
-		}
-
-		90% {
-			transform: rotate(2deg);
-		}
 	}
 }

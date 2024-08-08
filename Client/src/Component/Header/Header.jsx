@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { MdMenu as DensityMediumIcon } from "react-icons/md";
 import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
@@ -21,7 +21,7 @@ const Header = () => {
 		}
 	};
 
-	React.useEffect(() => {
+	useEffect(() => {
 		document.addEventListener("mousedown", handleOutsideClick);
 		return () => document.removeEventListener("mousedown", handleOutsideClick);
 	}, [menuVisible]);
@@ -43,7 +43,7 @@ const Header = () => {
 					</button>
 				</div>
 			</header>
-			{menuVisible && <OffCanvasMenu show={menuVisible} onClose={toggleMenu} />}
+			<OffCanvasMenu show={menuVisible} onClose={toggleMenu} />
 		</>
 	);
 };

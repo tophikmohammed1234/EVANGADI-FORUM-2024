@@ -24,7 +24,6 @@
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    margin-top: 45px;
     padding-bottom: 80px;
     box-sizing: border-box;
 }
@@ -89,7 +88,7 @@
     width: 100%;
     max-width: 300px;
     margin-bottom: 20px;
-    
+
 }
 
 .signinBtn:hover {

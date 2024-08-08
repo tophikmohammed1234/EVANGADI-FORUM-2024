@@ -1,14 +1,28 @@
-import React, { useState } from "react";
-import styles from "./OCMenu.module.css";
-import { Link } from "react-router-dom";
+import React, { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { RxExit } from "react-icons/rx";
+import { AppState } from "../App";
+import styles from "./OCMenu.module.css";
 
 const OffCanvasMenu = ({ show, onClose }) => {
+	const { user, setUser } = useContext(AppState);
 	const [selectedItem, setSelectedItem] = useState("");
+	const navigate = useNavigate();
 
-	const handleClick = (item) => {
+	const handleClick = (item, path) => {
 		setSelectedItem(item);
-		onClose(); // Close the menu after selecting an item
+		onClose();
+		navigate(path);
+	};
+
+	const handleAuthAction = () => {
+		if (user) {
+			localStorage.removeItem("token");
+			setUser(null);
+			handleClick("logout", "/");
+		} else {
+			handleClick("signin", "/login");
+		}
 	};
 
 	return (
@@ -19,33 +33,28 @@ const OffCanvasMenu = ({ show, onClose }) => {
 				</button>
 			</div>
 			<ul className={styles.offcanvasMainMenu}>
+				<li className={selectedItem === "landing" ? styles.selected : ""}>
+					<Link to="/" onClick={() => handleClick("landing", "/")}>
+						Landing Page
+					</Link>
+				</li>
 				<li className={selectedItem === "home" ? styles.selected : ""}>
-					<Link to="/" onClick={() => handleClick("home")}>
+					<Link to="/home" onClick={() => handleClick("home", "/home")}>
 						Home
 					</Link>
 				</li>
 				<li className={selectedItem === "about" ? styles.selected : ""}>
-					<Link to="/about" onClick={() => handleClick("about")}>
+					<Link to="#" onClick={() => handleClick("about", "#")}>
 						About
 					</Link>
 				</li>
-				<li className={selectedItem === "signup" ? styles.selected : ""}>
-					<Link to="/signup" onClick={() => handleClick("signup")}>
-						Signup
-					</Link>
-				</li>
-				<li className={selectedItem === "signin" ? styles.selected : ""}>
-					<Link to="/signin" onClick={() => handleClick("signin")}>
-						Sign In
-					</Link>
-				</li>
 				<li className={selectedItem === "services" ? styles.selected : ""}>
-					<Link to="/services" onClick={() => handleClick("services")}>
+					<Link to="#" onClick={() => handleClick("services", "#")}>
 						Services
 					</Link>
 				</li>
 				<li className={selectedItem === "contact" ? styles.selected : ""}>
-					<Link to="/contact" onClick={() => handleClick("contact")}>
+					<Link to="#" onClick={() => handleClick("contact", "#")}>
 						Contact
 					</Link>
 				</li>
@@ -53,10 +62,15 @@ const OffCanvasMenu = ({ show, onClose }) => {
 					className={selectedItem === "acknowledgment" ? styles.selected : ""}
 				>
 					<Link
-						to="/AcknowledgmentPage"
-						onClick={() => handleClick("acknowledgment")}
+						to="/acknowledgment"
+						onClick={() => handleClick("acknowledgment", "/acknowledgment")}
 					>
 						Acknowledgment
+					</Link>
+				</li>
+				<li className={selectedItem === "auth" ? styles.selected : ""}>
+					<Link to="#" onClick={handleAuthAction}>
+						{user ? "Log out" : "Sign In"}
 					</Link>
 				</li>
 			</ul>
