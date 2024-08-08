@@ -129,7 +129,6 @@ const Answer = () => {
 			const timeoutId = setTimeout(() => {
 				setAnswer(false);
 			}, 3000);
-
 			return () => clearTimeout(timeoutId);
 		} catch (error) {
 			alert("Something went wrong");
@@ -216,7 +215,6 @@ const Answer = () => {
 								{charCount}/200
 							</small>
 						)}
-
 						<br />
 						<button type="submit" className={`${classes.button} mb-5`}>
 							Post Answer
