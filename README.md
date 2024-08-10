@@ -43,7 +43,7 @@ for knowledge sharing. This application includes both a client side and a server
     ```
 2. **Navigate to the project directory**:
     ```bash
-    cd evangadi-forum
+    cd EVANGADI-FORUM-2024
     ```
 
 ### Client Side Setup
