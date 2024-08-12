@@ -17,6 +17,7 @@ const questionRoutes = require("./routes/questionRoute");
 const answerRoutes = require("./routes/answerRoute");
 // Authentication middleware
 const authMiddleware = require("./middleware/authMiddleware");
+const { createTables } = require("./db/database");
 
 // Routes with authentication middleware
 app.use("/api/questions", authMiddleware, questionRoutes);
@@ -25,14 +26,15 @@ app.use("/api/answers", authMiddleware, answerRoutes);
 
 // Start server with database connection
 async function start() {
-	try {
-		await dbConnection.execute("SELECT 'test'");
-		app.listen(port, () => {
-			console.log("Database connection established");
-			console.log(`Listening on port ${port}`);
-		});
-	} catch (error) {
-		console.error("Failed to establish database connection:", error.message);
-	}
+  try {
+    await dbConnection.execute("SELECT 'test'");
+    createTables();
+    app.listen(port, () => {
+      console.log("Database connection established");
+      console.log(`Listening on port ${port}`);
+    });
+  } catch (error) {
+    console.error("Failed to establish database connection:", error.message);
+  }
 }
 start();
